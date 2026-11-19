@@ -1,33 +1,17 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 /// <summary>
 /// IA do inimigo corpo a corpo (robô azul):
 ///   Ocioso → (vê o jogador) → Perseguindo → (chegou perto) → Preparando → Atacando → Perseguindo...
-///   Qualquer estado → Morto (quando a Vida chega a zero).
+///   Qualquer estado → Morto (quando a Vida chega a zero; tratado no InimigoBase).
 /// O "Preparando" é uma pausa de aviso antes do soco: o robô para e vira para o jogador,
 /// dando tempo de reagir (é um tutorial).
 /// O dano sai num momento fixo do soco ("Momento Do Golpe"), e só acerta se o jogador ainda
 /// estiver perto e na frente do robô. A invencibilidade do mergulho é respeitada pela Vida do jogador.
 /// </summary>
-[RequireComponent(typeof(NavMeshAgent), typeof(Animator), typeof(Vida))]
-public class InimigoIA : MonoBehaviour
+public class InimigoIA : InimigoBase
 {
-    private enum Estado { Ocioso, Perseguindo, Preparando, Atacando, Morto }
-
-    [Header("Percepção")]
-    [Tooltip("A que distância (metros) o robô percebe o jogador e começa a persegui-lo")]
-    [Min(0f)]
-    public float distanciaDeDeteccao = 15f;
-
-    [Header("Movimento")]
-    [Tooltip("Velocidade de caminhada (m/s)")]
-    [Min(0.1f)]
-    public float velocidade = 1.3f;
-
-    [Tooltip("Rapidez com que o robô vira para o jogador (graus por segundo)")]
-    [Min(10f)]
-    public float velocidadeDeGiro = 360f;
+    private enum Estado { Ocioso, Perseguindo, Preparando, Atacando }
 
     [Header("Ataque")]
     [Tooltip("Distância em que o robô para de andar e começa o ataque")]
@@ -63,51 +47,22 @@ public class InimigoIA : MonoBehaviour
     [Min(0f)]
     public float tempoEntreAtaques = 1f;
 
-    // Parâmetros que precisam existir no Animator do robô
-    private static readonly int ParamVelocidade = Animator.StringToHash("Velocidade");
-    private static readonly int ParamAtacar = Animator.StringToHash("Atacar");
-    private static readonly int ParamMorrer = Animator.StringToHash("Morrer");
-
-    private NavMeshAgent agente;
-    private Animator animator;
-    private Vida vida;
-
-    private Transform alvo;
-    private IDanificavel alvoDanificavel;
-
     private Estado estado = Estado.Ocioso;
     private float tempoNoEstado;
     private bool golpeJaAplicado;
     private float proximoAtaquePermitido;
 
-    // ---------- Ciclo de vida ----------
-
-    void Awake()
+    protected override void Awake()
     {
-        agente = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        vida = GetComponent<Vida>();
-
-        agente.speed = velocidade;
+        base.Awake();
         agente.stoppingDistance = distanciaParaAtacar * 0.9f;
-        animator.applyRootMotion = false; // quem move o robô é o NavMeshAgent
-
-        AvisarSeFaltarParametros();
     }
 
-    void Start()
+    protected override string[] ParametrosNecessarios() => new[] { "Velocidade", "Atacar", "Morrer" };
+
+    protected override void AtualizarIA(float deltaTime)
     {
-        EncontrarJogador();
-    }
-
-    void OnEnable() => vida.AoMorrer += Morrer;
-    void OnDisable() => vida.AoMorrer -= Morrer;
-
-    void Update()
-    {
-        if (estado == Estado.Morto) return;
-
-        tempoNoEstado += Time.deltaTime;
+        tempoNoEstado += deltaTime;
 
         if (!AlvoEstaVivo())
             TrocarPara(Estado.Ocioso);
@@ -119,8 +74,6 @@ public class InimigoIA : MonoBehaviour
             case Estado.Preparando: AtualizarPreparando(); break;
             case Estado.Atacando: AtualizarAtacando(); break;
         }
-
-        AtualizarAnimacaoDeMovimento();
     }
 
     // ---------- Estados ----------
@@ -172,15 +125,6 @@ public class InimigoIA : MonoBehaviour
         }
     }
 
-    private void Morrer()
-    {
-        TrocarPara(Estado.Morto);
-        PararDeAndar();
-        animator.SetFloat(ParamVelocidade, 0f);
-        animator.SetTrigger(ParamMorrer);
-        agente.enabled = false; // o corpo não empurra mais ninguém nem segue o NavMesh
-    }
-
     private void TrocarPara(Estado novoEstado)
     {
         if (estado == novoEstado) return;
@@ -206,90 +150,10 @@ public class InimigoIA : MonoBehaviour
             alvoDanificavel.ReceberDano(dano, alvo.position + Vector3.up, paraAlvo.normalized);
     }
 
-    // ---------- Movimento ----------
-
-    private void AndarAte(Vector3 destino)
-    {
-        if (!agente.isOnNavMesh) return;
-        agente.isStopped = false;
-        agente.SetDestination(destino);
-    }
-
-    private void PararDeAndar()
-    {
-        if (agente.enabled && agente.isOnNavMesh)
-            agente.isStopped = true;
-    }
-
-    private void VirarParaAlvo()
-    {
-        Vector3 direcao = alvo.position - transform.position;
-        direcao.y = 0f;
-        if (direcao.sqrMagnitude < 0.001f) return;
-
-        Quaternion rotacaoAlvo = Quaternion.LookRotation(direcao);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacaoAlvo, velocidadeDeGiro * Time.deltaTime);
-    }
-
-    private void AtualizarAnimacaoDeMovimento()
-    {
-        float velocidadeAtual = agente.enabled ? agente.velocity.magnitude : 0f;
-        animator.SetFloat(ParamVelocidade, velocidadeAtual, 0.1f, Time.deltaTime);
-    }
-
-    // ---------- Alvo ----------
-
-    // O jogador é encontrado pela tag "Player"; a Vida pode estar no mesmo objeto ou num pai/filho
-    private void EncontrarJogador()
-    {
-        GameObject jogador = GameObject.FindGameObjectWithTag("Player");
-        if (jogador == null)
-        {
-            Debug.LogWarning("InimigoIA: nenhum objeto com a tag 'Player' encontrado.", this);
-            return;
-        }
-
-        alvo = jogador.transform;
-        alvoDanificavel = jogador.GetComponentInParent<IDanificavel>();
-        if (alvoDanificavel == null)
-            alvoDanificavel = jogador.GetComponentInChildren<IDanificavel>();
-
-        if (alvoDanificavel == null)
-            Debug.LogWarning("InimigoIA: o jogador não tem o componente Vida, então não vai levar dano.", this);
-    }
-
-    private bool AlvoEstaVivo()
-    {
-        return alvo != null && alvoDanificavel != null && alvoDanificavel.EstaVivo;
-    }
-
-    private float DistanciaAteAlvo()
-    {
-        Vector3 diferenca = alvo.position - transform.position;
-        diferenca.y = 0f;
-        return diferenca.magnitude;
-    }
-
-    // ---------- Ajuda ----------
-
-    private void AvisarSeFaltarParametros()
-    {
-        foreach (string nome in new[] { "Velocidade", "Atacar", "Morrer" })
-        {
-            bool existe = false;
-            foreach (AnimatorControllerParameter p in animator.parameters)
-                existe |= p.name == nome;
-
-            if (!existe)
-                Debug.LogWarning($"InimigoIA: o Animator do robô não tem o parâmetro '{nome}'.", this);
-        }
-    }
-
     // Desenha os alcances na aba Scene quando o robô está selecionado
-    void OnDrawGizmosSelected()
+    protected override void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, distanciaDeDeteccao);
+        base.OnDrawGizmosSelected();
         Gizmos.color = new Color(1f, 0.5f, 0f);
         Gizmos.DrawWireSphere(transform.position, distanciaParaAtacar);
         Gizmos.color = Color.red;

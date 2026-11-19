@@ -21,6 +21,8 @@ namespace StarterAssets
         public Vector2 EntradaMovimento => _input != null ? _input.move : Vector2.zero;
         public bool NoChao => Grounded;
         public bool MovimentoBloqueado { get; set; }
+        public float MultiplicadorDeVelocidade { get; set; } = 1f;
+        public bool CorridaPermitida { get; set; } = true;
 
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
@@ -239,7 +241,8 @@ namespace StarterAssets
             }
 
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            bool correndo = _input.sprint && CorridaPermitida;
+            float targetSpeed = (correndo ? SprintSpeed : MoveSpeed) * MultiplicadorDeVelocidade;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

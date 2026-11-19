@@ -16,10 +16,16 @@ namespace StarterAssets
     }
 
     /// <summary>
-    /// Dá acesso ao movimento do personagem. Usado pela esquiva.
+    /// Dá acesso ao movimento do personagem. Usado pela esquiva e pela arma (andar mais devagar armado).
     /// </summary>
     public interface IControleMovimento
     {
+        /// <summary>Multiplica a velocidade de andar e correr (1 = normal, 0.5 = metade).</summary>
+        float MultiplicadorDeVelocidade { get; set; }
+
+        /// <summary>Quando falso, segurar Shift não faz correr (ex.: com a arma na mão).</summary>
+        bool CorridaPermitida { get; set; }
+
         /// <summary>Direção que o jogador está apertando (WASD / analógico).</summary>
         Vector2 EntradaMovimento { get; }
 

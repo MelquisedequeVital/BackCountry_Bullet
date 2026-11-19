@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,6 +24,12 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
     [Range(0f, 1f)]
     public float poseDeMiraNaEsquiva = 0.85f;
 
+    [Header("Movimento Armado")]
+    [Tooltip("Velocidade de andar/correr com a arma na mão (1 = normal, 0.5 = metade). " +
+             "Armado o personagem é mais lento: para escapar de ataques fortes é preciso guardar a arma.")]
+    [Range(0.2f, 1f)]
+    public float velocidadeArmado = 0.5f;
+
     [Header("Alinhamento da Pose (Correção Mixamo)")]
     [Tooltip("Corrige a arma apontando para a esquerda/direita")]
     [Range(-90f, 90f)]
@@ -45,6 +52,8 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
 
     private Animator animator;
     private IEstadoEsquiva estadoEsquiva;
+    private IControleMovimento controleMovimento;
+    private float fatorArmado; // 0 = desarmado, 1 = armado (muda aos poucos)
     private Transform ossoPeito;
     private int indiceCamada;
     private float pesoAtual;
@@ -61,6 +70,7 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
         VerificarComandoTeclado();
         AtualizarVisibilidadeArma();
         AtualizarPoseAnimacao();
+        AtualizarVelocidadeDeMovimento();
     }
 
     // Roda após o Animator calcular a pose do frame para alinhar o tronco
@@ -74,6 +84,7 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
     {
         animator = GetComponent<Animator>();
         estadoEsquiva = GetComponent<IEstadoEsquiva>();
+        controleMovimento = GetComponent<IControleMovimento>();
         indiceCamada = animator.GetLayerIndex(nomeCamadaArmas);
         ossoPeito = animator.GetBoneTransform(HumanBodyBones.Chest);
 
@@ -159,6 +170,17 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
 
         ossoPeito.Rotate(transform.up, ajusteHorizontal * fatorAjusteHorizontal * pesoAtual, Space.World);
         ossoPeito.Rotate(transform.right, ajusteVertical * pesoAtual, Space.World);
+    }
+
+    // 8. Armado o personagem anda mais devagar e não corre (a troca é suave, no mesmo ritmo dos braços)
+    private void AtualizarVelocidadeDeMovimento()
+    {
+        if (controleMovimento == null) return;
+
+        controleMovimento.CorridaPermitida = !estaArmado;
+
+        fatorArmado = Mathf.MoveTowards(fatorArmado, estaArmado ? 1f : 0f, velocidadeTransicao * Time.deltaTime);
+        controleMovimento.MultiplicadorDeVelocidade = Mathf.Lerp(1f, velocidadeArmado, fatorArmado);
     }
 
     private float CalcularPesoAlvo()

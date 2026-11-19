@@ -29,8 +29,17 @@ public interface IEstadoEsquiva
 /// Durante a esquiva, este script move o personagem e o ThirdPersonController fica bloqueado.
 /// </summary>
 [RequireComponent(typeof(Animator), typeof(CharacterController))]
-public class Esquiva : MonoBehaviour, IEstadoEsquiva
+public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
 {
+    [Header("Invencibilidade (só no mergulho desarmado)")]
+    [Tooltip("Em que ponto do mergulho (0 a 1) o personagem fica invencível")]
+    [Range(0f, 1f)]
+    public float inicioDaInvencibilidade = 0.05f;
+
+    [Tooltip("Em que ponto do mergulho (0 a 1) a invencibilidade acaba")]
+    [Range(0f, 1f)]
+    public float fimDaInvencibilidade = 0.6f;
+
     [Header("Distância")]
     [Tooltip("Quantos metros o personagem percorre no mergulho")]
     [Min(0f)]
@@ -78,6 +87,21 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva
 
     public TipoDeEsquiva TipoAtual { get; private set; } = TipoDeEsquiva.Nenhuma;
     public bool EstaEsquivando => TipoAtual != TipoDeEsquiva.Nenhuma;
+
+    /// <summary>
+    /// Invencível só durante a janela do mergulho desarmado ("i-frames").
+    /// A esquiva armada NÃO dá invencibilidade: ela só tira o personagem do lugar.
+    /// </summary>
+    public bool EstaInvencivel
+    {
+        get
+        {
+            if (TipoAtual != TipoDeEsquiva.Mergulho) return false;
+
+            float progresso = tempoDecorrido / duracaoDaAnimacao;
+            return progresso >= inicioDaInvencibilidade && progresso <= fimDaInvencibilidade;
+        }
+    }
 
     private const int CamadaBase = 0;
     private const float DuracaoReserva = 1f; // usada até o Animator informar a duração real

@@ -14,6 +14,7 @@ public class GirarComMouse : MonoBehaviour
     private Transform cameraPrincipal;
     private ThirdPersonController controller;
     private EquiparArma scriptEquipar;
+    private IEstadoEsquiva estadoEsquiva;
     private bool estaArmado;
 
     void Start()
@@ -43,6 +44,7 @@ public class GirarComMouse : MonoBehaviour
 
         controller = GetComponent<ThirdPersonController>();
         scriptEquipar = GetComponent<EquiparArma>();
+        estadoEsquiva = GetComponent<IEstadoEsquiva>();
     }
 
     // 2. Ativa a câmera aproximada e trava o giro automático assim que equipar a arma (Q)
@@ -72,10 +74,11 @@ public class GirarComMouse : MonoBehaviour
         }
     }
 
-    // 4. Mantém o personagem apontado para a câmera sempre que estiver com a arma equipada
+    // 4. Mantém o personagem apontado para a câmera sempre que estiver com a arma equipada.
+    //    Pausa durante o mergulho, que precisa olhar para a direção do pulo.
     private void GirarPersonagemComCamera()
     {
-        if (!estaArmado || cameraPrincipal == null) return;
+        if (!estaArmado || cameraPrincipal == null || EstaMergulhando()) return;
 
         Vector3 frenteCamera = cameraPrincipal.forward;
         frenteCamera.y = 0f;
@@ -85,5 +88,10 @@ public class GirarComMouse : MonoBehaviour
             Quaternion rotacaoAlvo = Quaternion.LookRotation(frenteCamera);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotacaoAlvo, velocidadeGiro * Time.deltaTime);
         }
+    }
+
+    private bool EstaMergulhando()
+    {
+        return estadoEsquiva != null && estadoEsquiva.TipoAtual == TipoDeEsquiva.Mergulho;
     }
 }

@@ -46,6 +46,7 @@ public class ApontarArmaParaMira : MonoBehaviour
     };
 
     private IEstadoArma estadoArma;
+    private IEstadoEsquiva estadoEsquiva;
     private Transform cameraPrincipal;
     private Transform[] ossos;
     private float[] partes;
@@ -55,6 +56,7 @@ public class ApontarArmaParaMira : MonoBehaviour
     void Awake()
     {
         estadoArma = GetComponent<IEstadoArma>();
+        estadoEsquiva = GetComponent<IEstadoEsquiva>();
 
         if (Camera.main != null)
             cameraPrincipal = Camera.main.transform;
@@ -113,10 +115,11 @@ public class ApontarArmaParaMira : MonoBehaviour
 
     // ---------- Cálculo ----------
 
-    // Liga o efeito aos poucos ao sacar a arma e desliga aos poucos ao guardar
+    // Liga o efeito aos poucos ao sacar a arma e desliga aos poucos ao guardar.
+    // Continua ativo na esquiva armada curta (a arma segue a mira), mas desliga no mergulho.
     private void AtualizarPeso(float deltaTime)
     {
-        float pesoAlvo = EstaArmado() ? 1f : 0f;
+        float pesoAlvo = EstaArmado() && !EstaMergulhando() ? 1f : 0f;
         pesoAtual = Mathf.MoveTowards(pesoAtual, pesoAlvo, velocidadeTransicao * deltaTime);
     }
 
@@ -140,6 +143,11 @@ public class ApontarArmaParaMira : MonoBehaviour
     private bool EstaArmado()
     {
         return estadoArma != null && estadoArma.EstaArmado;
+    }
+
+    private bool EstaMergulhando()
+    {
+        return estadoEsquiva != null && estadoEsquiva.TipoAtual == TipoDeEsquiva.Mergulho;
     }
 
     // ---------- Aplicação ----------

@@ -12,11 +12,16 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
     [RequireComponent(typeof(PlayerInput))]
 #endif
-    public class ThirdPersonController : MonoBehaviour, IControleMira
+    public class ThirdPersonController : MonoBehaviour, IControleMira, IControleMovimento
     {
-    
+
     	[HideInInspector] public bool girarComMovimento = true;
-    	
+
+        // Implementação de IControleMovimento (usada pela esquiva)
+        public Vector2 EntradaMovimento => _input != null ? _input.move : Vector2.zero;
+        public bool NoChao => Grounded;
+        public bool MovimentoBloqueado { get; set; }
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -226,6 +231,13 @@ namespace StarterAssets
 
         private void Move()
         {
+            // Durante a esquiva quem move o personagem é o script Esquiva: aqui só aplica a gravidade
+            if (MovimentoBloqueado)
+            {
+                AplicarSomenteGravidade();
+                return;
+            }
+
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -295,6 +307,16 @@ namespace StarterAssets
             }
         }
 
+        private void AplicarSomenteGravidade()
+        {
+            _speed = 0f;
+            _animationBlend = 0f;
+            _controller.Move(new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+
+            if (_hasAnimator)
+                _animator.SetFloat(_animIDSpeed, 0f);
+        }
+
         private void JumpAndGravity()
         {
             if (Grounded)
@@ -316,7 +338,7 @@ namespace StarterAssets
                 }
 
                 // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f && !MovimentoBloqueado)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);

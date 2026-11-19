@@ -17,6 +17,7 @@ public class ArmaTiro : MonoBehaviour
     public bool tiroAutomatico = false;
 
     private IEstadoArma estadoArma;
+    private IEstadoEsquiva estadoEsquiva;
     private IReacaoAoTiro[] reacoes;
     private float proximoTiroPermitido;
 
@@ -39,6 +40,7 @@ public class ArmaTiro : MonoBehaviour
     private void BuscarDependencias()
     {
         estadoArma = GetComponent<IEstadoArma>();
+        estadoEsquiva = GetComponent<IEstadoEsquiva>(); // opcional: sem esquiva, o tiro funciona igual
         reacoes = GetComponents<IReacaoAoTiro>();
     }
 
@@ -64,7 +66,12 @@ public class ArmaTiro : MonoBehaviour
 
     private bool PodeAtirar()
     {
-        return EstaArmado() && CadenciaLiberada();
+        return EstaArmado() && !EstaEsquivando() && CadenciaLiberada();
+    }
+
+    private bool EstaEsquivando()
+    {
+        return estadoEsquiva != null && estadoEsquiva.EstaEsquivando;
     }
 
     private bool EstaArmado()

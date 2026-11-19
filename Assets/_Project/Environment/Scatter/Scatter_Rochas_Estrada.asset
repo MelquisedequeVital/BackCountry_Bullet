@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Rochas_Estrada
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Rochas_Estrada
+  prefabs:
+  - prefab: {fileID: 8701747473348928298, guid: 77bda3814495ca047bc91051ca490ef2, type: 3}
+    weight: 1
+  - prefab: {fileID: 1628973925836964172, guid: 7ccd7650546c5c242a2e709ea575ff6e, type: 3}
+    weight: 1
+  - prefab: {fileID: 5362026867251080303, guid: c9a079c8b7f489c42b1bcdb0581268b1, type: 3}
+    weight: 1
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 0
+  densityPerHectare: 25
+  region: 1
+  patchScale: 0
+  patchiness: 0
+  slopeRange: {x: 0, y: 15}
+  heightRange: {x: -3, y: 20}
+  avoidRiverBed: 1
+  reservedClearance: 6
+  roadClearance: 4
+  roadBand: {x: 4, y: 16}
+  nearReservedDensity: 0.3
+  densityFalloffDistance: 60
+  groupSize: {x: 1, y: 2}
+  groupRadius: 3
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 12
+  footprintFactor: 0.6
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0.3
+  sinkFraction: 0.12
+  randomTilt: 6

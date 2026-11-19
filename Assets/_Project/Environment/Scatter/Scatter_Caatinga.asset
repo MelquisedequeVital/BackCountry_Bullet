@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c305d5c5148ab246afa379abcd74c57, type: 3}
+  m_Name: Scatter_Caatinga
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterSet
+  relief: {fileID: 11400000, guid: 4074cdafabb2be34291468209676e8d5, type: 2}
+  paint: {fileID: 11400000, guid: 752b62e1709426d458a24401926f0a9f, type: 2}
+  seed: 2024
+  rules:
+  - {fileID: 11400000, guid: 3548412e5c0f3254885d5c5c02fd06df, type: 2}
+  - {fileID: 11400000, guid: 8cefe958d390f9a4da329d2972ec7b9d, type: 2}
+  - {fileID: 11400000, guid: 052ed8e73aa9f1f4d9dde556bf383907, type: 2}
+  - {fileID: 11400000, guid: 1f1886ac8515c4d4ba02a02e21f1345f, type: 2}
+  - {fileID: 11400000, guid: 315e488600dd86d4dbd8b855a7098512, type: 2}
+  - {fileID: 11400000, guid: d9779afcf6e526c45b754a9a45f8da15, type: 2}
+  - {fileID: 11400000, guid: 384000acfea1de340baac297f06d9033, type: 2}
+  - {fileID: 11400000, guid: 9292df121ecdb1a47a1ec926ba07ed0e, type: 2}
+  - {fileID: 11400000, guid: a0fe745ddf9dee84e91f06978baae649, type: 2}
+  - {fileID: 11400000, guid: 56d7e7274cfe42841b64c948f8fee247, type: 2}
+  - {fileID: 11400000, guid: 5cae18b6ee0647543b387f3b8e4b899c, type: 2}
+  - {fileID: 11400000, guid: 98c2395379570d545bfeaad89b7eb472, type: 2}
+  - {fileID: 11400000, guid: e1e8be912c50cc64db8deee187ddebb6, type: 2}
+  - {fileID: 11400000, guid: 3dda6449f6be9674d89af4a853b2b7e5, type: 2}
+  - {fileID: 11400000, guid: a246a9c90150a13449a5a2adc8ea31b3, type: 2}
+  - {fileID: 11400000, guid: 2dd2b1dba02170c488193c406e581e5b, type: 2}
+  - {fileID: 11400000, guid: 0810a3a975fed5349bd027c2933f8e90, type: 2}

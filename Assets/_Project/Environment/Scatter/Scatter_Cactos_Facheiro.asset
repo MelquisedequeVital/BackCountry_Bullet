@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Cactos_Facheiro
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 0
+  categoryName: Cactos_Facheiro
+  prefabs:
+  - prefab: {fileID: 4103754076016867992, guid: 735925393d8f20042b5e23ba5799568c, type: 3}
+    weight: 1
+  - prefab: {fileID: 3269681900323734804, guid: 0ded01ad8c6f65d41b8d5ba22e2651f5, type: 3}
+    weight: 1
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 0
+  densityPerHectare: 3
+  region: 0
+  patchScale: 100
+  patchiness: 0.5
+  slopeRange: {x: 0, y: 22}
+  heightRange: {x: -1, y: 60}
+  avoidRiverBed: 1
+  reservedClearance: 6
+  roadClearance: 3
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 0.3
+  densityFalloffDistance: 60
+  groupSize: {x: 2, y: 4}
+  groupRadius: 4
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 1.5
+  footprintFactor: 0.6
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0
+  randomTilt: 4

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Arvores_Fora
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Arvores_Fora
+  prefabs:
+  - prefab: {fileID: 7256398797427806372, guid: 2477548d59d00644ba6a2c505b9c437d, type: 3}
+    weight: 1
+  - prefab: {fileID: 1302292365086444853, guid: 76c859ae91c2b3945af0dc2b4a88d4e8, type: 3}
+    weight: 1
+  - prefab: {fileID: 8091774984525939498, guid: b585cd4b58ff0be47a80ad6eb54e797d, type: 3}
+    weight: 1
+  - prefab: {fileID: 4327651412347788275, guid: 5c221f9cd2587c547a86e89141514d10, type: 3}
+    weight: 1
+  - prefab: {fileID: 7879103485304222608, guid: 9d0793e6d59d4ff4c9dd79f1b5b59cc8, type: 3}
+    weight: 0.3
+  - prefab: {fileID: 3048662026000083853, guid: 6be86bf2eecf4d246abf91eee72e84ab, type: 3}
+    weight: 0.3
+  - prefab: {fileID: 8095138406668284187, guid: d70993163a9443545ac0bd5881a35167, type: 3}
+    weight: 0.3
+  - prefab: {fileID: 7386929250589706423, guid: fbf2a4ec6974ffb498487ec3988dd969, type: 3}
+    weight: 0.3
+  - prefab: {fileID: 8054638394663425361, guid: c5b1a53963b1a7d428a139b1d50f6dc5, type: 3}
+    weight: 0.3
+  - prefab: {fileID: 7281652277719228085, guid: 9e15756c18e6b044a8c048e2bd707032, type: 3}
+    weight: 0.35
+  - prefab: {fileID: 3572988507412529344, guid: 69a3a79b7a5d9fe429c1ce87e4b49048, type: 3}
+    weight: 0.35
+  output: 1
+  vegetationField: 1
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 1
+  densityPerHectare: 45
+  region: 4
+  patchScale: 0
+  patchiness: 0
+  slopeRange: {x: 0, y: 38}
+  heightRange: {x: -5, y: 140}
+  avoidRiverBed: 1
+  reservedClearance: 6
+  roadClearance: 4
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 1
+  densityFalloffDistance: 1
+  groupSize: {x: 1, y: 3}
+  groupRadius: 7
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 4.5
+  footprintFactor: 0.3
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0
+  randomTilt: 0

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Rochas_Lajedos
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Rochas_Lajedos
+  prefabs:
+  - prefab: {fileID: 2195301220706665030, guid: 1df64346b7cf4794abfaf1d496b713e5, type: 3}
+    weight: 1
+  - prefab: {fileID: 7172203393453048382, guid: 6a8646c59e618724989bb2dc6ab702bc, type: 3}
+    weight: 1
+  - prefab: {fileID: 6318608648938944995, guid: 54d39666361c46a4e941b00232aa86cf, type: 3}
+    weight: 1
+  - prefab: {fileID: 7389284973210125735, guid: 9d42ebb452372674e8870da73182a575, type: 3}
+    weight: 1
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 0
+  densityPerHectare: 3
+  region: 1
+  patchScale: 200
+  patchiness: 0.5
+  slopeRange: {x: 0, y: 8}
+  heightRange: {x: -1, y: 15}
+  avoidRiverBed: 1
+  reservedClearance: 12
+  roadClearance: 5
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 0.4
+  densityFalloffDistance: 50
+  groupSize: {x: 1, y: 2}
+  groupRadius: 10
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 6
+  footprintFactor: 0.8
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0.9
+  sinkFraction: 0.4
+  randomTilt: 2

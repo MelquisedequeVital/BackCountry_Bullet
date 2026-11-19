@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Emergentes_Fora
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Emergentes_Fora
+  prefabs:
+  - prefab: {fileID: 5523966158279798818, guid: 3ff812e19c369b741895af66feddc2df, type: 3}
+    weight: 1
+  - prefab: {fileID: 4964603391385546679, guid: 3116fdf0098bb7747bd3744d2df82c1e, type: 3}
+    weight: 1
+  - prefab: {fileID: 5950055555536074869, guid: d59cd7e1458da7543bacfb17ded22a8a, type: 3}
+    weight: 1
+  - prefab: {fileID: 4103754076016867992, guid: 735925393d8f20042b5e23ba5799568c, type: 3}
+    weight: 0.8
+  - prefab: {fileID: 3269681900323734804, guid: 0ded01ad8c6f65d41b8d5ba22e2651f5, type: 3}
+    weight: 0.8
+  output: 1
+  vegetationField: 0.7
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 1
+  densityPerHectare: 5
+  region: 4
+  patchScale: 150
+  patchiness: 0.4
+  slopeRange: {x: 0, y: 32}
+  heightRange: {x: -5, y: 140}
+  avoidRiverBed: 1
+  reservedClearance: 6
+  roadClearance: 4
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 1
+  densityFalloffDistance: 1
+  groupSize: {x: 1, y: 2}
+  groupRadius: 6
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 8
+  footprintFactor: 0.4
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0
+  randomTilt: 0

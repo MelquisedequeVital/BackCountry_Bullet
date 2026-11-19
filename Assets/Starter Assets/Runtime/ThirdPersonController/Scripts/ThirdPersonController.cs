@@ -12,7 +12,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
     [RequireComponent(typeof(PlayerInput))]
 #endif
-    public class ThirdPersonController : MonoBehaviour
+    public class ThirdPersonController : MonoBehaviour, IControleMira
     {
     
     	[HideInInspector] public bool girarComMovimento = true;
@@ -212,6 +212,16 @@ namespace StarterAssets
             // Cinemachine will follow this target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        }
+
+        // Implementação de IControleMira: gira a mira por código (usado pelo recuo da câmera).
+        // O valor é somado ao que o mouse já fez; o limite (TopClamp/BottomClamp) é aplicado no CameraRotation.
+        public void GirarMira(float grausParaCima, float grausParaDireita)
+        {
+            if (LockCameraPosition) return;
+
+            _cinemachineTargetPitch -= grausParaCima; // pitch menor = olhar mais para cima
+            _cinemachineTargetYaw += grausParaDireita;
         }
 
         private void Move()

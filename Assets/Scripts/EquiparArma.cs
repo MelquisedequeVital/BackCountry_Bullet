@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EquiparArma : MonoBehaviour
+public class EquiparArma : MonoBehaviour, IEstadoArma
 {
     [Header("Configurações Gerais")]
     [Tooltip("Arraste aqui o objeto da arma que está na mão do personagem")]
@@ -30,6 +30,9 @@ public class EquiparArma : MonoBehaviour
 
     // Variável pública oculta para outros scripts lerem se o personagem está armado
     [HideInInspector] public bool estaArmado;
+
+    // Implementação da interface IEstadoArma (usada pelo sistema de tiro)
+    public bool EstaArmado => estaArmado;
 
     private Animator animator;
     private Transform ossoPeito;

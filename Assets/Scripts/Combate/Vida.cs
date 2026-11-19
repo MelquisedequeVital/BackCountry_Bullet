@@ -26,6 +26,16 @@ public interface IFonteDeInvencibilidade
 }
 
 /// <summary>
+/// Qualquer componente que muda o dano recebido (ex.: armadura que reduz, ponto fraco que aumenta).
+/// O dano final é multiplicado por todos os modificadores do personagem.
+/// </summary>
+public interface IModificadorDeDano
+{
+    /// <summary>1 = dano normal, 0.15 = só 15%, 1.5 = 50% a mais.</summary>
+    float MultiplicadorDeDano { get; }
+}
+
+/// <summary>
 /// Vida de um personagem: recebe dano, cura e avisa quando morre.
 /// Serve para os robôs e para o jogador. Outros scripts (IA, interface, sons)
 /// reagem pelos eventos, sem que este script precise conhecê-los.
@@ -69,11 +79,20 @@ public class Vida : MonoBehaviour, IDanificavel
     public bool EstaVivo => VidaAtual > 0f;
 
     private IFonteDeInvencibilidade[] fontesDeInvencibilidade;
+    private IModificadorDeDano[] modificadoresDeDano;
 
     void Awake()
     {
         VidaAtual = vidaMaxima;
         fontesDeInvencibilidade = GetComponents<IFonteDeInvencibilidade>();
+        modificadoresDeDano = GetComponents<IModificadorDeDano>();
+    }
+
+    private float AplicarModificadores(float quantidade)
+    {
+        foreach (IModificadorDeDano modificador in modificadoresDeDano)
+            quantidade *= modificador.MultiplicadorDeDano;
+        return quantidade;
     }
 
     public bool EstaInvencivel()
@@ -96,6 +115,7 @@ public class Vida : MonoBehaviour, IDanificavel
             return;
         }
 
+        quantidade = AplicarModificadores(quantidade); // ex.: armadura ou ponto fraco
         VidaAtual = Mathf.Max(0f, VidaAtual - quantidade);
         RegistrarNoConsole(quantidade);
         AoReceberDano?.Invoke(quantidade, ponto, direcao);

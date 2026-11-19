@@ -84,9 +84,7 @@ public class InimigoAtirador : InimigoBase
         agente.stoppingDistance = 0.5f;
         mao = animator.GetBoneTransform(HumanBodyBones.RightHand);
         hashDoEstadoDeArremesso = Animator.StringToHash(estadoDeArremesso);
-
-        if (!animator.HasState(0, hashDoEstadoDeArremesso))
-            Debug.LogWarning($"InimigoAtirador: estado '{estadoDeArremesso}' não encontrado na Base Layer do Animator.", this);
+        AvisarSeFaltarEstado(estadoDeArremesso);
 
         if (mao == null)
             Debug.LogWarning("InimigoAtirador: mão direita não encontrada (o robô precisa ser Humanoid). " +
@@ -178,12 +176,8 @@ public class InimigoAtirador : InimigoBase
     // Quanto da animação de arremesso já tocou (0 a 1). Enquanto ela ainda não começou, devolve 0.
     private float ProgressoDaAnimacao(out bool estaNoEstado)
     {
-        AnimatorStateInfo info = animator.IsInTransition(0)
-            ? animator.GetNextAnimatorStateInfo(0)
-            : animator.GetCurrentAnimatorStateInfo(0);
-
-        estaNoEstado = info.shortNameHash == hashDoEstadoDeArremesso;
-        return estaNoEstado ? Mathf.Clamp01(info.normalizedTime) : (animacaoComecou ? 1f : 0f);
+        float progresso = ProgressoDoEstado(hashDoEstadoDeArremesso, out estaNoEstado);
+        return estaNoEstado ? progresso : (animacaoComecou ? 1f : 0f);
     }
 
     private void TrocarPara(Estado novoEstado)

@@ -19,6 +19,7 @@ public class ArmaTiro : MonoBehaviour
     private IEstadoArma estadoArma;
     private IEstadoEsquiva estadoEsquiva;
     private IReacaoAoTiro[] reacoes;
+    private IPermissaoDeTiro[] permissoes; // ex.: CargaDaArma (bloqueia enquanto recarrega)
     private float proximoTiroPermitido;
 
     void Awake()
@@ -42,6 +43,7 @@ public class ArmaTiro : MonoBehaviour
         estadoArma = GetComponent<IEstadoArma>();
         estadoEsquiva = GetComponent<IEstadoEsquiva>(); // opcional: sem esquiva, o tiro funciona igual
         reacoes = GetComponents<IReacaoAoTiro>();
+        permissoes = GetComponents<IPermissaoDeTiro>();
     }
 
     private void AvisarSeFaltarDependencias()
@@ -66,7 +68,18 @@ public class ArmaTiro : MonoBehaviour
 
     private bool PodeAtirar()
     {
-        return EstaArmado() && !EstaEsquivando() && CadenciaLiberada();
+        return EstaArmado() && !EstaEsquivando() && CadenciaLiberada() && TodosPermitem();
+    }
+
+    // Pergunta a cada "permissão" (ex.: a carga da arma) se pode atirar agora
+    private bool TodosPermitem()
+    {
+        foreach (IPermissaoDeTiro permissao in permissoes)
+        {
+            if (permissao is Behaviour componente && !componente.isActiveAndEnabled) continue;
+            if (!permissao.PodeAtirar) return false;
+        }
+        return true;
     }
 
     private bool EstaEsquivando()

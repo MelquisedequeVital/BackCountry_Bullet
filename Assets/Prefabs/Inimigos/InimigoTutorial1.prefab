@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2362d198d117384e893691276da1f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vida
-  vidaMaxima: 100
+  vidaMaxima: 150
   destruirAoMorrer: 1
   atrasoParaDestruir: 4
   desligarColisoresAoMorrer: 1

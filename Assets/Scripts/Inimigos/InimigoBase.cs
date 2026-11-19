@@ -168,6 +168,30 @@ public abstract class InimigoBase : MonoBehaviour
         return diferenca.magnitude;
     }
 
+    // ---------- Animação ----------
+
+    /// <summary>
+    /// Quanto do estado do Animator já tocou (0 a 1), considerando também a transição para ele.
+    /// "estaNoEstado" diz se o Animator está (ou entrando) nesse estado agora.
+    /// Usar isto em vez de tempo fixo mantém golpes e disparos sincronizados com a animação,
+    /// mesmo mudando a velocidade do estado no Animator.
+    /// </summary>
+    protected float ProgressoDoEstado(int hashDoEstado, out bool estaNoEstado)
+    {
+        AnimatorStateInfo info = animator.IsInTransition(0)
+            ? animator.GetNextAnimatorStateInfo(0)
+            : animator.GetCurrentAnimatorStateInfo(0);
+
+        estaNoEstado = info.shortNameHash == hashDoEstado;
+        return estaNoEstado ? Mathf.Clamp01(info.normalizedTime) : 0f;
+    }
+
+    protected void AvisarSeFaltarEstado(string nomeDoEstado)
+    {
+        if (!animator.HasState(0, Animator.StringToHash(nomeDoEstado)))
+            Debug.LogWarning($"{GetType().Name}: estado '{nomeDoEstado}' não encontrado na Base Layer do Animator.", this);
+    }
+
     // ---------- Ajuda ----------
 
     private void AvisarSeFaltarParametros(string[] nomes)

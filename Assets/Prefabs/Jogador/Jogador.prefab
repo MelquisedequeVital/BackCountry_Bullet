@@ -474,6 +474,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5843092112258884538}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3323390344522997113}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3088560593958895859}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1 &2369790847113880593 stripped
 GameObject:
@@ -817,6 +823,42 @@ MonoBehaviour:
   vidaBaixa: 0.3
   intensidadeDoPulso: 0.3
   velocidadeDoPulso: 1.2
+--- !u!114 &3323390344522997113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369790847113880593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7834aa5462f0dc04d8f672f3797024c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CargaDaArma
+  tirosPorCarga: 5
+  tempoDeRecarga: 1.5
+  recarregarSozinhoApos: 2
+  somAoComecar: {fileID: 8300000, guid: 08edb2bef8ffb1f4a8de1858af2f36fb, type: 3}
+  somAoTerminar: {fileID: 8300000, guid: 84b8dc5699eea984d91a0a8e96178771, type: 3}
+  volume: 0.7
+--- !u!114 &3088560593958895859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369790847113880593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d7dccf61245714fa60311c48385363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IndicadorDeMunicao
+  margem: {x: 40, y: 74}
+  tamanhoDaBala: {x: 14, y: 26}
+  espacamento: 6
+  corCheia: {r: 1, g: 0.85, b: 0.35, a: 1}
+  corVazia: {r: 1, g: 1, b: 1, a: 0.15}
+  corDaRecarga: {r: 1, g: 0.85, b: 0.35, a: 0.9}
 --- !u!4 &3146011269610454699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}

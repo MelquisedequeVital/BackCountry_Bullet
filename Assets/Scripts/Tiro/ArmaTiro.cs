@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Decide QUANDO a arma dispara: lê o botão do mouse, confere se o personagem está armado
 /// e respeita a cadência. Ele não sabe o que acontece no tiro: só avisa os componentes
-/// IReacaoAoTiro do mesmo objeto (AnimacaoTiro, RecuoArma, DisparoRaycast, EfeitosTiro).
+/// IReacaoAoTiro do mesmo objeto (AnimacaoTiro, RecuoArma, RecuoCamera, DisparoRaycast, ClaraoDoCano, SomDoTiro...).
 /// </summary>
 public class ArmaTiro : MonoBehaviour
 {
@@ -48,7 +48,7 @@ public class ArmaTiro : MonoBehaviour
             Debug.LogWarning("ArmaTiro: nenhum componente de estado da arma (ex.: EquiparArma) encontrado neste objeto.", this);
 
         if (reacoes.Length == 0)
-            Debug.LogWarning("ArmaTiro: nenhuma reação ao tiro encontrada. Adicione AnimacaoTiro, RecuoArma, DisparoRaycast ou EfeitosTiro.", this);
+            Debug.LogWarning("ArmaTiro: nenhuma reação ao tiro encontrada. Adicione AnimacaoTiro, RecuoArma, DisparoRaycast, ClaraoDoCano etc.", this);
     }
 
     // ---------- Regras do tiro ----------

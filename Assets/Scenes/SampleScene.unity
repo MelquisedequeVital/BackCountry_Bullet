@@ -200,7 +200,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7682213458616953240, guid: 742f72a22d5e24c0eb6d1b58f4bdeca6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1803906776}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 742f72a22d5e24c0eb6d1b58f4bdeca6, type: 3}
 --- !u!4 &339374054 stripped
@@ -610,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7749868402899333086, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: CameraDistance
-      value: 2
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7749868402899333086, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: ShoulderOffset.x
@@ -736,6 +739,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8152838629247047501, guid: 86b6ce4aed9b8e2d28703b89f13152d6, type: 3}
   m_PrefabInstance: {fileID: 4734439931579548210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1803906775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803906776}
+  m_Layer: 0
+  m_Name: PontaDoCano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1803906776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803906775}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.9981691, y: 0.00000008195634, z: -0.00000035762767, w: -0.06048505}
+  m_LocalPosition: {x: -0.036, y: 0.081, z: -1.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 339374054}
+  m_LocalEulerAnglesHint: {x: -186.935, y: 0, z: 0}
 --- !u!1 &1959507528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1082,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4036699535446424881, guid: 86b6ce4aed9b8e2d28703b89f13152d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4734439931579548233}
+    - targetCorrespondingSourceObject: {fileID: 4036699535446424881, guid: 86b6ce4aed9b8e2d28703b89f13152d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4734439931579548234}
   m_SourcePrefab: {fileID: 100100000, guid: 86b6ce4aed9b8e2d28703b89f13152d6, type: 3}
 --- !u!4 &4734439931579548211 stripped
 Transform:
@@ -1127,7 +1164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ffd6f4bfd422a4bae19597d7507a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EfeitosTiro
-  claraoDoCano: {fileID: 0}
   somDoTiro: {fileID: 0}
   variacaoDeTom: 0.05
 --- !u!114 &4734439931579548229
@@ -1213,6 +1249,24 @@ MonoBehaviour:
   correcaoVertical: 0
   velocidadeSeguir: 20
   velocidadeTransicao: 8
+--- !u!114 &4734439931579548234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799603330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8255e2ff204695e4bbbcc591e7b40d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClaraoDoCano
+  prefabDoClarao: {fileID: 100006, guid: c888f0c922d622147bbdbe2ca794142b, type: 3}
+  pontaDoCano: {fileID: 1803906776}
+  escala: 1
+  particulasPorTiro: 1
+  usarLuz: 1
+  duracaoDaLuz: 0.05
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

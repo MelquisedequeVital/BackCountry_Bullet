@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b654aab44d04aeb8c6525ac451abfb3, type: 3}
+  m_Name: NPCTutorial2_Conversa
+  m_EditorClassIdentifier: 
+  falas:
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Valha-me Deus, tu derrubou o bicho do Coronel! Faz tempo que ninguém tinha essa coragem."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Coronel?"
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Coronel Silício. Gerente da NimbusCorp aqui na região. Eu trabalhei de vigia naquele datacenter, até uma máquina daquelas esmagar minha perna. Me botaram na rua no mesmo dia."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Então o senhor sabe pra onde vai a água."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Sei. Aquelas máquinas esquentam feito chapa de cuscuz. Pra esfriar, o Coronel puxa a água do subsolo inteiro. Cada pergunta que fazem pra tal da inteligência artificial bebe um pouco do nosso poço."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "E onde eu acho esse Coronel?"
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Na torre de resfriamento, no fim da estrada. Mas no caminho tem outro bicho dele, um roxo. Esse não briga de perto, não: joga bola de energia. Bola daquela não se segura com o peito. Pula pro lado, sem largar a espingarda."
+  - tipo: 1
+    quem: 0
+    personagem: ""
+    texto: "Com a arma na mão, aperte o <b>botão direito do mouse</b> + uma direção para <b>esquivar sem guardar a arma</b>."
+  sortearUmaFala: 0

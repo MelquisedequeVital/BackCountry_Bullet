@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &330240058146979116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 919132149155446097, guid: 3c7f5bef4d532a54c934435d5532d5a9, type: 3}
+      propertyPath: m_Name
+      value: NPCBoss
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3c7f5bef4d532a54c934435d5532d5a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 113394283176219726}
+  m_SourcePrefab: {fileID: 100100000, guid: 3c7f5bef4d532a54c934435d5532d5a9, type: 3}
+--- !u!1 &600199503231402109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3c7f5bef4d532a54c934435d5532d5a9, type: 3}
+  m_PrefabInstance: {fileID: 330240058146979116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &113394283176219726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600199503231402109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58965c80e86046309e01091298b57bce, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  nome: "Coronel Silício"
+  conversas:
+  - dialogo: {fileID: 11400000, guid: e0a8ac3ab35a4aa283db6b018f739845, type: 2}
+    exigirConversa: {fileID: 0}
+    liberarQuandoMorrer: {fileID: 0}
+    irParaOPonto: {fileID: 0}
+    comecarSozinha: 1
+    distanciaParaComecar: 28
+  - dialogo: {fileID: 11400000, guid: 51e5c15ed26648e8b53cbc4316d93ba9, type: 2}
+    exigirConversa: {fileID: 0}
+    liberarQuandoMorrer: {fileID: 0}
+    irParaOPonto: {fileID: 0}
+    comecarSozinha: 1
+    distanciaParaComecar: 0
+  conversaRepetida: {fileID: 0}
+  distanciaParaFalar: 2.5
+  virarParaOJogador: 0
+  chamadoDeLonge: {fileID: 0}
+  distanciaDoChamado: 10

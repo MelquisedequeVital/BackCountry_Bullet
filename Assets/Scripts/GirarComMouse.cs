@@ -78,7 +78,7 @@ public class GirarComMouse : MonoBehaviour
     //    Pausa durante o mergulho, que precisa olhar para a direção do pulo.
     private void GirarPersonagemComCamera()
     {
-        if (!estaArmado || cameraPrincipal == null || EstaMergulhando()) return;
+        if (!estaArmado || cameraPrincipal == null || EstaMergulhando() || CaixaDeDialogo.EstaAberta) return; // na conversa, quem vira o jogador é o diálogo
 
         Vector3 frenteCamera = cameraPrincipal.forward;
         frenteCamera.y = 0f;

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b654aab44d04aeb8c6525ac451abfb3, type: 3}
+  m_Name: NPCTutorial1_Janela
+  m_EditorClassIdentifier: 
+  falas:
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Tá vendo aquela lata azul? Guarda da NimbusCorp. Botaram o bicho aí pra ninguém se juntar e reclamar da água. Cabra que chega perto apanha."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "E ninguém fez nada?"
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Tentaram. Tão até hoje com o queixo torto. Mas tu... Faz o seguinte, cangaceiro: tira aquela praga da minha porta, e a cerveja é por conta da casa. A última da safra antes da seca."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Fechado."
+  - tipo: 1
+    quem: 0
+    personagem: ""
+    texto: "Aperte <b>Q</b> para sacar ou guardar a arma."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Só não deixa ele chegar perto, que o soco daquilo derruba boi."
+  - tipo: 1
+    quem: 0
+    personagem: ""
+    texto: "<b>Botão esquerdo do mouse</b> para atirar. A arma tem <b>5 tiros</b> e recarrega sozinha."
+  sortearUmaFala: 0

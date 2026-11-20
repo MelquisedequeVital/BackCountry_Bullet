@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /// <summary>
 /// Barra de vida que se monta sozinha quando o jogo começa (não precisa criar Canvas nem imagens).
 /// - HUD: fixa no canto superior esquerdo da tela (para o jogador).
 /// - Acima da cabeça: flutua sobre o personagem e sempre olha para a câmera (para os inimigos).
-/// - Chefe no topo: barra larga no centro do topo da tela, com o nome embaixo (para o boss).
+/// - Chefe embaixo: barra larga no centro da parte de baixo da tela, com o nome em cima (para o boss).
+///   Fica embaixo para não bater na barra do jogador, que fica no canto de cima.
 /// Mostra também um "rastro" claro que desce devagar depois de cada dano, para o jogador
 /// perceber quanto perdeu.
 /// Coloque no mesmo objeto que tem o componente Vida.
 /// </summary>
 public class BarraDeVida : MonoBehaviour
 {
-    public enum Posicao { HudCantoSuperiorEsquerdo, AcimaDaCabeca, ChefeNoTopo }
+    public enum Posicao { HudCantoSuperiorEsquerdo, AcimaDaCabeca, ChefeEmbaixo }
 
     [Tooltip("Onde a barra aparece")]
     public Posicao posicao = Posicao.AcimaDaCabeca;
@@ -33,13 +35,14 @@ public class BarraDeVida : MonoBehaviour
     [Tooltip("Distância da barra até as bordas esquerda e de cima, em pixels")]
     public Vector2 margem = new Vector2(40f, 40f);
 
-    [Header("Chefe no topo")]
-    [Tooltip("Nome mostrado embaixo da barra do chefe")]
+    [Header("Chefe embaixo")]
+    [Tooltip("Nome mostrado em cima da barra do chefe")]
     public string nomeNaBarra = "Super Mecha";
     [Tooltip("Tamanho da barra do chefe em pixels (numa tela 1920x1080)")]
     public Vector2 tamanhoDaBarraDoChefe = new Vector2(900f, 22f);
-    [Tooltip("Distância da barra até o topo da tela, em pixels")]
-    public float distanciaDoTopo = 40f;
+    [Tooltip("Distância da barra até a parte de baixo da tela, em pixels")]
+    [FormerlySerializedAs("distanciaDoTopo")]
+    public float distanciaDeBaixo = 50f;
     [Min(8)]
     public int tamanhoDoNome = 26;
 
@@ -68,6 +71,7 @@ public class BarraDeVida : MonoBehaviour
     private Image imagemDaVida;
     private Text textoDoNome;
     private Transform cameraPrincipal;
+    private Canvas canvasDaTela;
 
     private bool EstaNaTela => posicao != Posicao.AcimaDaCabeca;
 
@@ -93,7 +97,7 @@ public class BarraDeVida : MonoBehaviour
         switch (posicao)
         {
             case Posicao.HudCantoSuperiorEsquerdo: MontarNaTela(); break;
-            case Posicao.ChefeNoTopo: MontarChefeNoTopo(); break;
+            case Posicao.ChefeEmbaixo: MontarChefeEmbaixo(); break;
             default: MontarAcimaDaCabeca(); break;
         }
     }
@@ -122,6 +126,10 @@ public class BarraDeVida : MonoBehaviour
 
         if (posicao == Posicao.AcimaDaCabeca)
             OlharParaCamera();
+
+        // A barra do chefe divide a parte de baixo da tela com a caixa de diálogo: some enquanto alguém fala
+        if (posicao == Posicao.ChefeEmbaixo && canvasDaTela != null)
+            canvasDaTela.enabled = !CaixaDeDialogo.EstaAberta;
     }
 
     void OnDestroy()
@@ -148,14 +156,14 @@ public class BarraDeVida : MonoBehaviour
         CriarBarras(fundo);
     }
 
-    // Barra larga centralizada no topo, com o nome do chefe logo embaixo
-    private void MontarChefeNoTopo()
+    // Barra larga centralizada embaixo, com o nome do chefe logo em cima
+    private void MontarChefeEmbaixo()
     {
         CriarCanvasDaTela($"HUD Chefe ({name})");
 
         RectTransform fundo = CriarImagem("Fundo", raiz.transform, corDoFundo);
-        fundo.anchorMin = fundo.anchorMax = fundo.pivot = new Vector2(0.5f, 1f);
-        fundo.anchoredPosition = new Vector2(0f, -distanciaDoTopo);
+        fundo.anchorMin = fundo.anchorMax = fundo.pivot = new Vector2(0.5f, 0f);
+        fundo.anchoredPosition = new Vector2(0f, distanciaDeBaixo);
         fundo.sizeDelta = tamanhoDaBarraDoChefe;
 
         CriarBarras(fundo);
@@ -163,8 +171,8 @@ public class BarraDeVida : MonoBehaviour
         var objetoTexto = new GameObject("Nome", typeof(RectTransform), typeof(Text));
         objetoTexto.transform.SetParent(raiz.transform, false);
         RectTransform rectTexto = (RectTransform)objetoTexto.transform;
-        rectTexto.anchorMin = rectTexto.anchorMax = rectTexto.pivot = new Vector2(0.5f, 1f);
-        rectTexto.anchoredPosition = new Vector2(0f, -(distanciaDoTopo + tamanhoDaBarraDoChefe.y + 6f));
+        rectTexto.anchorMin = rectTexto.anchorMax = rectTexto.pivot = new Vector2(0.5f, 0f);
+        rectTexto.anchoredPosition = new Vector2(0f, distanciaDeBaixo + tamanhoDaBarraDoChefe.y + 6f);
         rectTexto.sizeDelta = new Vector2(tamanhoDaBarraDoChefe.x, tamanhoDoNome * 1.6f);
 
         textoDoNome = objetoTexto.GetComponent<Text>();
@@ -172,7 +180,7 @@ public class BarraDeVida : MonoBehaviour
         textoDoNome.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         textoDoNome.fontSize = tamanhoDoNome;
         textoDoNome.fontStyle = FontStyle.Bold;
-        textoDoNome.alignment = TextAnchor.UpperCenter;
+        textoDoNome.alignment = TextAnchor.LowerCenter;
         textoDoNome.color = Color.white;
         textoDoNome.raycastTarget = false;
 
@@ -187,6 +195,7 @@ public class BarraDeVida : MonoBehaviour
         Canvas canvas = raiz.GetComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 10;
+        canvasDaTela = canvas;
 
         CanvasScaler escalador = raiz.GetComponent<CanvasScaler>();
         escalador.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;

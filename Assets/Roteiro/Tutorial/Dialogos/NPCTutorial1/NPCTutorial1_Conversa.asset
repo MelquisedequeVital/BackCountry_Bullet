@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b654aab44d04aeb8c6525ac451abfb3, type: 3}
+  m_Name: NPCTutorial1_Conversa
+  m_EditorClassIdentifier: 
+  falas:
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Faz tempo que não aparece forasteiro por aqui. Chapéu de couro, espingarda nas costas... tu é cangaceiro, é?"
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Fui. Hoje sou o que sobrou do bando."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Pois o que sobrou já serve. Só não peça água, que água não tem."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Num bar sem água?"
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Numa vila sem água. Três meses que não cai uma gota na torneira. O poço secou do dia pra noite."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Seca de sertão não vem do dia pra noite."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Essa veio. Foi só levantarem aquele prédio de luz azul no fim da estrada. Um tal de datacenter da NimbusCorp. E desde então, nem freguês eu tenho. Chega ali na janela, que tu entende."
+  sortearUmaFala: 0

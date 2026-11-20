@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b654aab44d04aeb8c6525ac451abfb3, type: 3}
+  m_Name: NPCTutorial3_Conversa
+  m_EditorClassIdentifier: 
+  falas:
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Chapéu de couro, espingarda... e esse teu braço é coisa de bando, num é?"
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Era."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Eu também fui do cangaço, menino, faz muito tempo. Esse olho aqui eu deixei numa briga com a volante. Tu vai passar por esse portão?"
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Vou."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Então presta atenção. Do outro lado tem o guarda laranja, o maior bicho da NimbusCorp. Chumbo de espingarda só arranha aquela lataria. E quando ele vem correndo, não tem pulo de lado que salve."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "E faz o quê?"
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "No cangaço a gente aprendia: bala se desvia em pé, boi bravo se desvia no chão. Guarda a arma, que ela pesa, e quando o bicho vier, te joga no chão por baixo da carreira dele."
+  - tipo: 1
+    quem: 0
+    personagem: ""
+    texto: "Aperte <b>Q</b> para desarmar e o <b>botão direito do mouse</b> para desviar."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "E não fica só deitado olhando, não. Depois da carreira, o bicho fica cansado, abre a guarda. Aí tu saca e mete chumbo."
+  - tipo: 1
+    quem: 0
+    personagem: ""
+    texto: "Depois da investida, o robô fica <b>cansado</b>: saque a arma e atire!"
+  sortearUmaFala: 0

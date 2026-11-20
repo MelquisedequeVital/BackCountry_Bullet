@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b654aab44d04aeb8c6525ac451abfb3, type: 3}
+  m_Name: NPCBoss_Depois
+  m_EditorClassIdentifier: 
+  falas:
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Você... você não entende. Desligar isso aqui não muda nada. Existem mil datacenters como este."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Então agora são mil menos um."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "A NimbusCorp vai mandar outro gerente. E outro. E outro."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "E o cangaço vai estar esperando cada um deles."
+  sortearUmaFala: 0

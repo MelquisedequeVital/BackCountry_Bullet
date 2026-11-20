@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1764401178506529104
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6013024183208075520, guid: 93290e41b7691464eaed605a64eefd60, type: 3}
+      propertyPath: m_Name
+      value: NPCTutorial3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013024183198552788, guid: 93290e41b7691464eaed605a64eefd60, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 98ecacbf386542c29b01766c0e2fc9b2, type: 2}
+    - target: {fileID: 6013024183198552788, guid: 93290e41b7691464eaed605a64eefd60, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6013024183208075520, guid: 93290e41b7691464eaed605a64eefd60, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1585483543753389176}
+  m_SourcePrefab: {fileID: 100100000, guid: 93290e41b7691464eaed605a64eefd60, type: 3}
+--- !u!1 &5408511049812600912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6013024183208075520, guid: 93290e41b7691464eaed605a64eefd60, type: 3}
+  m_PrefabInstance: {fileID: 1764401178506529104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1585483543753389176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408511049812600912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58965c80e86046309e01091298b57bce, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  nome: "Dona Socorro"
+  conversas:
+  - dialogo: {fileID: 11400000, guid: 9f6202064b9d468ca2aaded03a406bd7, type: 2}
+    liberarQuandoMorrer: {fileID: 0}
+    irParaOPonto: {fileID: 0}
+    comecarSozinha: 0
+  - dialogo: {fileID: 11400000, guid: a2fedbeaede9426faee458aeb6d77250, type: 2}
+    liberarQuandoMorrer: {fileID: 0}
+    irParaOPonto: {fileID: 0}
+    comecarSozinha: 0
+  conversaRepetida: {fileID: 0}
+  distanciaParaFalar: 2.5
+  virarParaOJogador: 1
+  chamadoDeLonge: {fileID: 11400000, guid: e3653fe288804919b517315007bfdfc5, type: 2}
+  distanciaDoChamado: 10

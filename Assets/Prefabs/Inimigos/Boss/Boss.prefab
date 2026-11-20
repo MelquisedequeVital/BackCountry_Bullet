@@ -1217,7 +1217,7 @@ MonoBehaviour:
   margem: {x: 40, y: 40}
   nomeNaBarra: Super Mecha
   tamanhoDaBarraDoChefe: {x: 900, y: 22}
-  distanciaDoTopo: 40
+  distanciaDeBaixo: 50
   tamanhoDoNome: 26
   tamanhoNoMundo: {x: 1, y: 0.1}
   alturaAcimaDaCabeca: 0.3
@@ -1262,6 +1262,14 @@ MonoBehaviour:
   pontoEstocada: 0.34
   danoCortePesado: 30
   pontoCortePesado: 0.33
+  acertoPelaLamina: 1
+  nomeDaEspada: Core_Sword
+  folgaDoAcerto: 0.2
+  janelaAntesDoGolpe: 0.06
+  fimDaLaminaCorteRapido: 0.42
+  fimDaLaminaEstocada: 0.56
+  fimDaLaminaCortePesado: 0.56
+  mostrarLaminaNaCena: 0
   distanciaParaAtirar: 5
   intervaloDeTiros: 3.5
   chanceDeAtirar: 0.6
@@ -1291,6 +1299,7 @@ MonoBehaviour:
   danoDaInvestida: 35
   distanciaAlemDoAlvo: 5
   duracaoMaximaDaInvestida: 2
+  derrubaOJogador: 1
   corDoAviso: {r: 1, g: 0.4, b: 0.05, a: 1}
   corVulneravel: {r: 0.3, g: 0.8, b: 1, a: 1}
   corDosTiros: {r: 1, g: 0.3, b: 0.1, a: 1}

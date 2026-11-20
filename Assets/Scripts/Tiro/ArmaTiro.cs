@@ -68,7 +68,7 @@ public class ArmaTiro : MonoBehaviour
 
     private bool PodeAtirar()
     {
-        return EstaArmado() && !EstaEsquivando() && CadenciaLiberada() && TodosPermitem();
+        return EstaArmado() && !EstaEsquivando() && !CaixaDeDialogo.EstaAberta && CadenciaLiberada() && TodosPermitem();
     }
 
     // Pergunta a cada "permissão" (ex.: a carga da arma) se pode atirar agora

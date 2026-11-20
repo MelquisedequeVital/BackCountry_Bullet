@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b654aab44d04aeb8c6525ac451abfb3, type: 3}
+  m_Name: NPCTutorial1_DepoisDaLuta
+  m_EditorClassIdentifier: 
+  falas:
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Oxe! Três meses esse traste aí, e tu resolveu num piscar de olho. Boa pontaria pra um homem de um braço só."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "Tenho dois. Um só é de lata."
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "Bem-vindo ao clube. Toma, cerveja prometida é cerveja paga. Guarda pra quando a coisa apertar. No sertão, bebida é remédio, é coragem e é conversa."
+  - tipo: 0
+    quem: 1
+    personagem: ""
+    texto: "E esse datacenter?"
+  - tipo: 0
+    quem: 0
+    personagem: ""
+    texto: "No fim da estrada. Mas antes de sair por aí se matando, fala com o Véio Bento, na praça. Ele trabalhou lá dentro e sabe das coisas."
+  sortearUmaFala: 0

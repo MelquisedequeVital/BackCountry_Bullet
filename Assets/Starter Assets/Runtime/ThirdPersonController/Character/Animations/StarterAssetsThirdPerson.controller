@@ -93,6 +93,9 @@ AnimatorStateMachine:
     m_State: {fileID: 5576987184698964369}
     m_Position: {x: -119.19971, y: 192.89423, z: 0}
   - serializedVersion: 1
+    m_State: {fileID: 4821553199873316421}
+    m_Position: {x: 520, y: 520, z: 0}
+  - serializedVersion: 1
     m_State: {fileID: -6913356290978033426}
     m_Position: {x: 723.0011, y: 411.81494, z: 0}
   m_ChildStateMachines: []
@@ -990,6 +993,32 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: -203655887218126122, guid: 6287d6eb8ac550b9cb35bfd18f37f5fa, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &4821553199873316421
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MorteArmado
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7311409832513478441, guid: 343f7e4f828b0d74c9f512295d1fe59b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

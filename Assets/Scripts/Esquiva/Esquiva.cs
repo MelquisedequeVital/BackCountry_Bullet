@@ -43,7 +43,7 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
     [Header("Distância")]
     [Tooltip("Quantos metros o personagem percorre no mergulho")]
     [Min(0f)]
-    public float distanciaDesarmado = 4f;
+    public float distanciaDesarmado = 3.6f;
 
     [Tooltip("Quantos metros o personagem percorre na esquiva armada curta")]
     [Min(0f)]
@@ -52,7 +52,7 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
     [Header("Rapidez")]
     [Tooltip("Acelera a animação do mergulho (1 = velocidade original, 2 = duas vezes mais rápido)")]
     [Range(0.5f, 3f)]
-    public float velocidadeDesarmado = 1.6f;
+    public float velocidadeDesarmado = 1.8f;
 
     [Tooltip("Acelera as esquivas armadas curtas (1 = velocidade original, 2 = duas vezes mais rápido)")]
     [Range(0.5f, 3f)]
@@ -66,6 +66,17 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
     [Tooltip("Em que ponto da animação (0 a 1) o jogador volta a ter o controle. Menor = esquiva mais ágil.")]
     [Range(0.3f, 1f)]
     public float fimDaEsquiva = 0.7f;
+
+    [Header("Mergulho (desarmado)")]
+    [Tooltip("Velocidade ao longo do mergulho. Copiada da própria animação: acelera, rola e só para perto do fim.")]
+    public AnimationCurve curvaDoMergulho = new AnimationCurve(
+        new Keyframe(0f, 0.35f), new Keyframe(0.25f, 1f), new Keyframe(0.45f, 0.85f),
+        new Keyframe(0.6f, 0.6f), new Keyframe(0.8f, 0.4f), new Keyframe(0.92f, 0.1f), new Keyframe(1f, 0f));
+
+    [Tooltip("Em que ponto do mergulho o jogador volta a ter o controle. " +
+             "Em 0.85 o personagem já está quase de pé, então a volta para o andar fica suave.")]
+    [Range(0.3f, 1f)]
+    public float fimDoMergulho = 0.85f;
 
     [Tooltip("Tempo mínimo (em segundos) depois de uma esquiva para fazer outra")]
     [Min(0f)]
@@ -120,12 +131,14 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
     private float tempoDecorrido;
     private float proximaEsquivaPermitida;
     private float areaDaCurva;
+    private float areaDaCurvaDoMergulho;
     private float velocidadeOriginalDoAnimator = 1f;
 
     void Awake()
     {
         BuscarDependencias();
-        areaDaCurva = CalcularAreaDaCurva();
+        areaDaCurva = CalcularAreaDaCurva(curvaDeVelocidade);
+        areaDaCurvaDoMergulho = CalcularAreaDaCurva(curvaDoMergulho);
         AvisarSeFaltarAlgo();
     }
 
@@ -163,12 +176,12 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
     }
 
     // Área embaixo da curva, para a distância percorrida ser a configurada mesmo mudando a curva
-    private float CalcularAreaDaCurva()
+    private static float CalcularAreaDaCurva(AnimationCurve curva)
     {
         const int amostras = 50;
         float soma = 0f;
         for (int i = 0; i < amostras; i++)
-            soma += curvaDeVelocidade.Evaluate((i + 0.5f) / amostras);
+            soma += curva.Evaluate((i + 0.5f) / amostras);
 
         return Mathf.Max(soma / amostras, 0.01f);
     }
@@ -183,7 +196,20 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
     private bool PodeEsquivar()
     {
         bool noChao = controleMovimento == null || controleMovimento.NoChao;
-        return noChao && Time.time >= proximaEsquivaPermitida;
+        bool livre = controleMovimento == null || !controleMovimento.MovimentoBloqueado; // ex.: caído (derrubada)
+        return noChao && livre && Time.time >= proximaEsquivaPermitida;
+    }
+
+    /// <summary>
+    /// Interrompe a esquiva na hora (ex.: o jogador foi derrubado no meio dela).
+    /// Não mexe na animação nem no bloqueio de movimento: quem cancelou assume o controle.
+    /// </summary>
+    public void Cancelar()
+    {
+        if (!EstaEsquivando) return;
+        TipoAtual = TipoDeEsquiva.Nenhuma;
+        animator.speed = velocidadeOriginalDoAnimator;
+        proximaEsquivaPermitida = Time.time + tempoDeRecarga;
     }
 
     private bool EstaArmado()
@@ -269,7 +295,8 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
         float progresso = tempoDecorrido / duracaoDaAnimacao;
         MoverPersonagem(progresso, deltaTime);
 
-        if (progresso >= fimDaEsquiva)
+        float fim = TipoAtual == TipoDeEsquiva.Mergulho ? fimDoMergulho : fimDaEsquiva;
+        if (progresso >= fim)
             TerminarEsquiva();
     }
 
@@ -292,8 +319,12 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
 
     private void MoverPersonagem(float progresso, float deltaTime)
     {
-        float velocidadeMedia = distanciaDaEsquiva / (duracaoDaAnimacao * areaDaCurva);
-        float velocidade = velocidadeMedia * curvaDeVelocidade.Evaluate(progresso);
+        bool mergulho = TipoAtual == TipoDeEsquiva.Mergulho;
+        AnimationCurve curva = mergulho ? curvaDoMergulho : curvaDeVelocidade;
+        float area = mergulho ? areaDaCurvaDoMergulho : areaDaCurva;
+
+        float velocidadeMedia = distanciaDaEsquiva / (duracaoDaAnimacao * area);
+        float velocidade = velocidadeMedia * curva.Evaluate(progresso);
 
         characterController.Move(direcaoDaEsquiva * (velocidade * deltaTime));
     }

@@ -92,6 +92,8 @@ public class GirarComMouse : MonoBehaviour
 
     private bool EstaMergulhando()
     {
-        return estadoEsquiva != null && estadoEsquiva.TipoAtual == TipoDeEsquiva.Mergulho;
+        bool mergulhando = estadoEsquiva != null && estadoEsquiva.TipoAtual == TipoDeEsquiva.Mergulho;
+        bool derrubado = TryGetComponent(out IDerrubavel derrubavel) && derrubavel.EstaDerrubado;
+        return mergulhando || derrubado; // caído (derrubada) conta igual ao mergulho
     }
 }

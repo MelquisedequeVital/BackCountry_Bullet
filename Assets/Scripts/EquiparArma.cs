@@ -53,6 +53,7 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
     private Animator animator;
     private IEstadoEsquiva estadoEsquiva;
     private IControleMovimento controleMovimento;
+    private IDerrubavel derrubavel;
     private float fatorArmado; // 0 = desarmado, 1 = armado (muda aos poucos)
     private Transform ossoPeito;
     private int indiceCamada;
@@ -85,6 +86,7 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
         animator = GetComponent<Animator>();
         estadoEsquiva = GetComponent<IEstadoEsquiva>();
         controleMovimento = GetComponent<IControleMovimento>();
+        derrubavel = GetComponent<IDerrubavel>();
         indiceCamada = animator.GetLayerIndex(nomeCamadaArmas);
         ossoPeito = animator.GetBoneTransform(HumanBodyBones.Chest);
 
@@ -111,7 +113,7 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
     // 3. Detecta o clique na tecla configurada (Q). Não troca de arma no meio da esquiva.
     private void VerificarComandoTeclado()
     {
-        if (Keyboard.current == null || EstaEsquivando()) return;
+        if (Keyboard.current == null || EstaEsquivando() || EstaDerrubado()) return;
 
         if (Keyboard.current[teclaEquipar].wasPressedThisFrame)
         {
@@ -194,8 +196,15 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
         return estadoEsquiva != null && estadoEsquiva.EstaEsquivando;
     }
 
+    // No mergulho e caído (derrubada) o corpo inteiro faz a animação: a arma some e a pose de mira sai
     private bool EstaMergulhando()
     {
-        return estadoEsquiva != null && estadoEsquiva.TipoAtual == TipoDeEsquiva.Mergulho;
+        bool mergulhando = estadoEsquiva != null && estadoEsquiva.TipoAtual == TipoDeEsquiva.Mergulho;
+        return mergulhando || EstaDerrubado();
+    }
+
+    private bool EstaDerrubado()
+    {
+        return derrubavel != null && derrubavel.EstaDerrubado;
     }
 }

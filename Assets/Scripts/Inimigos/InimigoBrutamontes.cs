@@ -105,6 +105,9 @@ public class InimigoBrutamontes : InimigoBase, IModificadorDeDano
     [Tooltip("Tempo máximo correndo (segurança)")]
     [Min(0.1f)] public float duracaoMaximaDaInvestida = 2.5f;
 
+    [Tooltip("A investida derruba o jogador (empurrão + queda + levantar)")]
+    public bool derrubaOJogador = true;
+
     [Tooltip("Tempo parado e vulnerável depois da investida (dá para sacar a arma e dar uns 5 tiros)")]
     [Min(0f)] public float tempoCansado = 2.5f;
 
@@ -140,10 +143,7 @@ public class InimigoBrutamontes : InimigoBase, IModificadorDeDano
     private bool investidaAcertou;
 
     // Brilho
-    private Renderer[] renderizadores;
-    private Color[][] coresOriginais;
-    private MaterialPropertyBlock blocoDePropriedades;
-    private Light luzDoBrilho;
+    private BrilhoDoCorpo brilho;
 
     // ---------- Ciclo de vida ----------
 
@@ -369,7 +369,8 @@ public class InimigoBrutamontes : InimigoBase, IModificadorDeDano
 
         bool chegouAoFim = distanciaPercorrida >= distanciaParaPercorrer;
         bool bateuEmAlgo = andou < passo.magnitude * 0.2f && tempoNoEstado > 0.2f;
-        if (chegouAoFim || bateuEmAlgo || tempoNoEstado >= duracaoMaximaDaInvestida)
+        // Acertou o jogador: o impacto freia a investida (ele não continua correndo por cima de você)
+        if (investidaAcertou || chegouAoFim || bateuEmAlgo || tempoNoEstado >= duracaoMaximaDaInvestida)
             TrocarPara(Estado.Cansado);
     }
 
@@ -394,11 +395,13 @@ public class InimigoBrutamontes : InimigoBase, IModificadorDeDano
     {
         if (investidaAcertou || !AlvoEstaVivo() || DistanciaAteAlvo() > raioDaInvestida) return;
 
-        if (alvoDanificavel is Vida vidaDoAlvo && vidaDoAlvo.EstaInvencivel())
-            return;
-
+        // Invencível: a Vida ignora o dano e avisa "desviou" (feedback); a investida ainda pode acertar depois
+        bool desviou = alvoDanificavel is Vida vidaDoAlvo && vidaDoAlvo.EstaInvencivel();
         alvoDanificavel.ReceberDano(danoDaInvestida, CentroDoAlvo, direcaoDaInvestida);
+        if (desviou) return;
+
         investidaAcertou = true;
+        if (derrubaOJogador) DerrubarAlvo(direcaoDaInvestida);
     }
 
     // Depois da investida: parado e vulnerável, piscando na cor de "ponto fraco"
@@ -426,38 +429,9 @@ public class InimigoBrutamontes : InimigoBase, IModificadorDeDano
 
     // ---------- Brilho de aviso ----------
 
-    // Guarda as cores originais de cada material para pintar por cima sem mudar o material de verdade
     private void PrepararBrilho()
     {
-        renderizadores = GetComponentsInChildren<Renderer>();
-        coresOriginais = new Color[renderizadores.Length][];
-        blocoDePropriedades = new MaterialPropertyBlock();
-
-        for (int r = 0; r < renderizadores.Length; r++)
-        {
-            Material[] materiais = renderizadores[r].sharedMaterials;
-            coresOriginais[r] = new Color[materiais.Length];
-            for (int m = 0; m < materiais.Length; m++)
-                coresOriginais[r][m] = CorDoMaterial(materiais[m]);
-        }
-
-        var objetoDaLuz = new GameObject("Brilho de Aviso");
-        objetoDaLuz.transform.SetParent(transform, false);
-        objetoDaLuz.transform.localPosition = new Vector3(0f, 1.5f, 0.6f);
-        luzDoBrilho = objetoDaLuz.AddComponent<Light>();
-        luzDoBrilho.type = LightType.Point;
-        luzDoBrilho.color = corDoBrilho;
-        luzDoBrilho.range = 5f;
-        luzDoBrilho.intensity = 0f;
-        luzDoBrilho.enabled = false;
-    }
-
-    private static Color CorDoMaterial(Material material)
-    {
-        if (material == null) return Color.white;
-        if (material.HasProperty("_BaseColor")) return material.GetColor("_BaseColor");
-        if (material.HasProperty("_Color")) return material.GetColor("_Color");
-        return Color.white;
+        brilho = new BrilhoDoCorpo(transform, new Vector3(0f, 1.5f, 0.6f));
     }
 
     // 0 = cores normais, 1 = brilho máximo (na cor do aviso, se nenhuma for informada)
@@ -465,25 +439,7 @@ public class InimigoBrutamontes : InimigoBase, IModificadorDeDano
 
     private void AplicarBrilho(float intensidade, Color corDoEfeito)
     {
-        if (renderizadores == null) return;
-
-        for (int r = 0; r < renderizadores.Length; r++)
-        {
-            if (renderizadores[r] == null) continue;
-
-            for (int m = 0; m < coresOriginais[r].Length; m++)
-            {
-                Color cor = Color.Lerp(coresOriginais[r][m], corDoEfeito, intensidade * forcaDoBrilho);
-                renderizadores[r].GetPropertyBlock(blocoDePropriedades, m);
-                blocoDePropriedades.SetColor("_BaseColor", cor);
-                blocoDePropriedades.SetColor("_Color", cor);
-                renderizadores[r].SetPropertyBlock(blocoDePropriedades, m);
-            }
-        }
-
-        luzDoBrilho.enabled = intensidade > 0.01f;
-        luzDoBrilho.color = corDoEfeito;
-        luzDoBrilho.intensity = intensidade * 6f;
+        brilho?.Aplicar(intensidade, corDoEfeito, forcaDoBrilho);
     }
 
     // ---------- Ajuda ----------

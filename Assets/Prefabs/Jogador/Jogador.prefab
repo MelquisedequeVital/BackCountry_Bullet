@@ -687,9 +687,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Esquiva
   inicioDaInvencibilidade: 0.05
   fimDaInvencibilidade: 0.6
-  distanciaDesarmado: 4
+  distanciaDesarmado: 3.6
   distanciaArmado: 2.5
-  velocidadeDesarmado: 1.6
+  velocidadeDesarmado: 1.8
   velocidadeArmado: 1.4
   curvaDeVelocidade:
     serializedVersion: 2

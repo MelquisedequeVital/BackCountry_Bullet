@@ -2,7 +2,8 @@ using UnityEngine;
 
 /// <summary>
 /// Esfera de energia disparada pelos inimigos.
-/// - Anda em linha reta (não persegue), então andar de lado ou esquivar funciona;
+/// - Anda em linha reta, ou TELEGUIADA (chamando Teleguiar): curva na direção do alvo com um limite de giro,
+///   e para de seguir quando chega perto (assim um passo para o lado ou o mergulho no último instante funcionam);
 /// - Dá dano em quem tiver Vida (IDanificavel) e some ao bater em algo;
 /// - Atravessa o jogador se ele estiver invencível (mergulho no tempo certo);
 /// - Ignora o inimigo que atirou e os outros inimigos.
@@ -16,6 +17,28 @@ public class ProjetilInimigo : MonoBehaviour
     private float raio;
     private float morreEm;
     private Transform dono;
+
+    // Teleguiado
+    private Transform alvo;
+    private Collider colisorDoAlvo;
+    private float giroPorSegundo;
+    private float paraDeSeguirEm;
+    private float distanciaParaParar;
+    private bool seguindo;
+
+    /// <summary>
+    /// Faz a esfera perseguir o alvo: vira no máximo "giroPorSegundo" graus por segundo, durante "duracao"
+    /// segundos, e para de seguir quando fica a menos de "distanciaParaParar" metros (segue reto dali).
+    /// </summary>
+    public void Teleguiar(Transform alvo, Collider colisorDoAlvo, float giroPorSegundo, float duracao, float distanciaParaParar)
+    {
+        this.alvo = alvo;
+        this.colisorDoAlvo = colisorDoAlvo;
+        this.giroPorSegundo = giroPorSegundo;
+        this.distanciaParaParar = distanciaParaParar;
+        paraDeSeguirEm = Time.time + duracao;
+        seguindo = alvo != null;
+    }
 
     // ---------- Criação ----------
 
@@ -95,12 +118,37 @@ public class ProjetilInimigo : MonoBehaviour
             return;
         }
 
+        Perseguir(Time.deltaTime);
+
         float distancia = velocidade * Time.deltaTime;
 
         if (VerificarColisao(distancia))
             return;
 
         transform.position += direcao * distancia;
+    }
+
+    // Vira aos poucos na direção do alvo; perto dele (ou depois do tempo) "se compromete" e segue reto
+    private void Perseguir(float deltaTime)
+    {
+        if (!seguindo) return;
+
+        if (alvo == null || Time.time >= paraDeSeguirEm)
+        {
+            seguindo = false;
+            return;
+        }
+
+        Vector3 centro = colisorDoAlvo != null && colisorDoAlvo.enabled ? colisorDoAlvo.bounds.center : alvo.position + Vector3.up;
+        Vector3 paraOAlvo = centro - transform.position;
+
+        if (paraOAlvo.magnitude <= distanciaParaParar)
+        {
+            seguindo = false;
+            return;
+        }
+
+        direcao = Vector3.RotateTowards(direcao, paraOAlvo.normalized, giroPorSegundo * Mathf.Deg2Rad * deltaTime, 0f);
     }
 
     // Lança uma "esfera invisível" do tamanho do projétil no trecho que ele vai andar neste quadro
@@ -114,7 +162,11 @@ public class ProjetilInimigo : MonoBehaviour
 
             Vida vidaAtingida = acerto.collider.GetComponentInParent<Vida>();
             if (vidaAtingida != null && vidaAtingida.EstaInvencivel())
-                continue; // esquivou no tempo certo: o projétil passa direto
+            {
+                // Esquivou no tempo certo: a Vida ignora o dano e avisa "desviou"; o projétil passa direto
+                vidaAtingida.ReceberDano(dano, acerto.point, direcao);
+                continue;
+            }
 
             IDanificavel alvo = acerto.collider.GetComponentInParent<IDanificavel>();
             if (alvo != null && alvo.EstaVivo)

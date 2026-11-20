@@ -37,6 +37,9 @@ public abstract class InimigoBase : MonoBehaviour
     protected IDanificavel alvoDanificavel;
     private Collider colisorDoAlvo;
 
+    /// <summary>Colisor do jogador (pode ser nulo). Útil para projéteis teleguiados mirarem no corpo.</summary>
+    protected Collider ColisorDoAlvo => colisorDoAlvo;
+
     /// <summary>Centro do corpo do jogador (meio do colisor). Use para mirar.</summary>
     protected Vector3 CentroDoAlvo =>
         colisorDoAlvo != null && colisorDoAlvo.enabled ? colisorDoAlvo.bounds.center : alvo.position + Vector3.up;
@@ -86,9 +89,15 @@ public abstract class InimigoBase : MonoBehaviour
     {
         EstaMorto = true;
         PararDeAndar();
+        TocarAnimacaoDeMorte();
+        agente.enabled = false; // o corpo não empurra mais ninguém nem segue o NavMesh
+    }
+
+    /// <summary>Padrão: parâmetros do Animator. Inimigos que controlam estados por código sobrescrevem.</summary>
+    protected virtual void TocarAnimacaoDeMorte()
+    {
         animator.SetFloat(ParamVelocidade, 0f);
         animator.SetTrigger(ParamMorrer);
-        agente.enabled = false; // o corpo não empurra mais ninguém nem segue o NavMesh
     }
 
     // ---------- Movimento ----------
@@ -118,7 +127,8 @@ public abstract class InimigoBase : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacaoAlvo, velocidadeDeGiro * Time.deltaTime);
     }
 
-    private void AtualizarAnimacaoDeMovimento()
+    /// <summary>Padrão: manda a velocidade para o parâmetro "Velocidade". O chefe sobrescreve.</summary>
+    protected virtual void AtualizarAnimacaoDeMovimento()
     {
         float velocidadeAtual = agente.enabled ? agente.velocity.magnitude : 0f;
         animator.SetFloat(ParamVelocidade, velocidadeAtual, 0.1f, Time.deltaTime);
@@ -151,6 +161,22 @@ public abstract class InimigoBase : MonoBehaviour
             alvo = jogador.transform;
             Debug.LogWarning($"{GetType().Name}: o jogador não tem o componente Vida, então não vai levar dano.", this);
         }
+    }
+
+    /// <summary>
+    /// Derruba o jogador (se ele puder ser derrubado e ainda estiver vivo). Ele é arremessado PARA LONGE deste
+    /// inimigo: mistura a direção do golpe com a direção "inimigo → jogador", para não cair em cima do inimigo.
+    /// </summary>
+    protected void DerrubarAlvo(Vector3 direcaoDoGolpe)
+    {
+        if (!AlvoEstaVivo()) return;
+        if (!(alvoDanificavel is Component componente) || !componente.TryGetComponent(out IDerrubavel derrubavel)) return;
+
+        Vector3 paraLonge = alvo.position - transform.position;
+        paraLonge.y = 0f;
+        direcaoDoGolpe.y = 0f;
+        Vector3 direcao = paraLonge.normalized + direcaoDoGolpe.normalized;
+        derrubavel.Derrubar(direcao.sqrMagnitude > 0.01f ? direcao : direcaoDoGolpe);
     }
 
     protected bool AlvoEstaVivo()

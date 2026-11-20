@@ -5,13 +5,14 @@ using UnityEngine.UI;
 /// Barra de vida que se monta sozinha quando o jogo começa (não precisa criar Canvas nem imagens).
 /// - HUD: fixa no canto superior esquerdo da tela (para o jogador).
 /// - Acima da cabeça: flutua sobre o personagem e sempre olha para a câmera (para os inimigos).
+/// - Chefe no topo: barra larga no centro do topo da tela, com o nome embaixo (para o boss).
 /// Mostra também um "rastro" claro que desce devagar depois de cada dano, para o jogador
 /// perceber quanto perdeu.
 /// Coloque no mesmo objeto que tem o componente Vida.
 /// </summary>
 public class BarraDeVida : MonoBehaviour
 {
-    public enum Posicao { HudCantoSuperiorEsquerdo, AcimaDaCabeca }
+    public enum Posicao { HudCantoSuperiorEsquerdo, AcimaDaCabeca, ChefeNoTopo }
 
     [Tooltip("Onde a barra aparece")]
     public Posicao posicao = Posicao.AcimaDaCabeca;
@@ -31,6 +32,16 @@ public class BarraDeVida : MonoBehaviour
     public Vector2 tamanhoNaTela = new Vector2(320f, 24f);
     [Tooltip("Distância da barra até as bordas esquerda e de cima, em pixels")]
     public Vector2 margem = new Vector2(40f, 40f);
+
+    [Header("Chefe no topo")]
+    [Tooltip("Nome mostrado embaixo da barra do chefe")]
+    public string nomeNaBarra = "Super Mecha";
+    [Tooltip("Tamanho da barra do chefe em pixels (numa tela 1920x1080)")]
+    public Vector2 tamanhoDaBarraDoChefe = new Vector2(900f, 22f);
+    [Tooltip("Distância da barra até o topo da tela, em pixels")]
+    public float distanciaDoTopo = 40f;
+    [Min(8)]
+    public int tamanhoDoNome = 26;
 
     [Header("Acima da cabeça")]
     [Tooltip("Tamanho da barra em metros")]
@@ -55,7 +66,10 @@ public class BarraDeVida : MonoBehaviour
     private RectTransform preenchimento;
     private RectTransform rastro;
     private Image imagemDaVida;
+    private Text textoDoNome;
     private Transform cameraPrincipal;
+
+    private bool EstaNaTela => posicao != Posicao.AcimaDaCabeca;
 
     private float valorDoRastro = 1f;
     private float ultimaPorcentagem = 1f;
@@ -76,10 +90,25 @@ public class BarraDeVida : MonoBehaviour
         if (Camera.main != null)
             cameraPrincipal = Camera.main.transform;
 
-        if (posicao == Posicao.HudCantoSuperiorEsquerdo)
-            MontarNaTela();
-        else
-            MontarAcimaDaCabeca();
+        switch (posicao)
+        {
+            case Posicao.HudCantoSuperiorEsquerdo: MontarNaTela(); break;
+            case Posicao.ChefeNoTopo: MontarChefeNoTopo(); break;
+            default: MontarAcimaDaCabeca(); break;
+        }
+    }
+
+    /// <summary>Troca o nome mostrado na barra do chefe (também pode ser mudado no Inspector).</summary>
+    public void DefinirNome(string novoNome)
+    {
+        nomeNaBarra = novoNome;
+        if (textoDoNome != null) textoDoNome.text = novoNome;
+    }
+
+    /// <summary>Mostra ou esconde a barra (ex.: só mostrar a do chefe quando a luta começar).</summary>
+    public void Mostrar(bool mostrar)
+    {
+        if (raiz != null) raiz.SetActive(mostrar);
     }
 
     void LateUpdate()
@@ -97,8 +126,8 @@ public class BarraDeVida : MonoBehaviour
 
     void OnDestroy()
     {
-        // A barra do HUD não é filha do personagem, então precisa ser apagada junto com ele
-        if (raiz != null && posicao == Posicao.HudCantoSuperiorEsquerdo)
+        // As barras da tela não são filhas do personagem, então precisam ser apagadas junto com ele
+        if (raiz != null && EstaNaTela)
             Destroy(raiz);
     }
 
@@ -108,15 +137,7 @@ public class BarraDeVida : MonoBehaviour
 
     private void MontarNaTela()
     {
-        raiz = new GameObject($"HUD Vida ({name})", typeof(Canvas), typeof(CanvasScaler));
-        Canvas canvas = raiz.GetComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 10;
-
-        CanvasScaler escalador = raiz.GetComponent<CanvasScaler>();
-        escalador.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        escalador.referenceResolution = new Vector2(1920f, 1080f);
-        escalador.matchWidthOrHeight = 0.5f;
+        CriarCanvasDaTela($"HUD Vida ({name})");
 
         // Fundo ancorado no canto superior esquerdo, afastado das bordas pela margem
         RectTransform fundo = CriarImagem("Fundo", raiz.transform, corDoFundo);
@@ -125,6 +146,52 @@ public class BarraDeVida : MonoBehaviour
         fundo.sizeDelta = tamanhoNaTela;
 
         CriarBarras(fundo);
+    }
+
+    // Barra larga centralizada no topo, com o nome do chefe logo embaixo
+    private void MontarChefeNoTopo()
+    {
+        CriarCanvasDaTela($"HUD Chefe ({name})");
+
+        RectTransform fundo = CriarImagem("Fundo", raiz.transform, corDoFundo);
+        fundo.anchorMin = fundo.anchorMax = fundo.pivot = new Vector2(0.5f, 1f);
+        fundo.anchoredPosition = new Vector2(0f, -distanciaDoTopo);
+        fundo.sizeDelta = tamanhoDaBarraDoChefe;
+
+        CriarBarras(fundo);
+
+        var objetoTexto = new GameObject("Nome", typeof(RectTransform), typeof(Text));
+        objetoTexto.transform.SetParent(raiz.transform, false);
+        RectTransform rectTexto = (RectTransform)objetoTexto.transform;
+        rectTexto.anchorMin = rectTexto.anchorMax = rectTexto.pivot = new Vector2(0.5f, 1f);
+        rectTexto.anchoredPosition = new Vector2(0f, -(distanciaDoTopo + tamanhoDaBarraDoChefe.y + 6f));
+        rectTexto.sizeDelta = new Vector2(tamanhoDaBarraDoChefe.x, tamanhoDoNome * 1.6f);
+
+        textoDoNome = objetoTexto.GetComponent<Text>();
+        textoDoNome.text = nomeNaBarra;
+        textoDoNome.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        textoDoNome.fontSize = tamanhoDoNome;
+        textoDoNome.fontStyle = FontStyle.Bold;
+        textoDoNome.alignment = TextAnchor.UpperCenter;
+        textoDoNome.color = Color.white;
+        textoDoNome.raycastTarget = false;
+
+        Outline contorno = objetoTexto.AddComponent<Outline>(); // contorno preto: legível em qualquer fundo
+        contorno.effectColor = new Color(0f, 0f, 0f, 0.8f);
+        contorno.effectDistance = new Vector2(2f, -2f);
+    }
+
+    private void CriarCanvasDaTela(string nomeDoCanvas)
+    {
+        raiz = new GameObject(nomeDoCanvas, typeof(Canvas), typeof(CanvasScaler));
+        Canvas canvas = raiz.GetComponent<Canvas>();
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 10;
+
+        CanvasScaler escalador = raiz.GetComponent<CanvasScaler>();
+        escalador.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        escalador.referenceResolution = new Vector2(1920f, 1080f);
+        escalador.matchWidthOrHeight = 0.5f;
     }
 
     private void MontarAcimaDaCabeca()

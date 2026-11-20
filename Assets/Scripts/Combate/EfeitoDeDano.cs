@@ -149,7 +149,13 @@ public class EfeitoDeDano : MonoBehaviour
     }
 
     // Textura branca: transparente no centro e opaca nas bordas (a cor vem da Image)
-    private Sprite CriarSpriteDeVinheta()
+    private Sprite CriarSpriteDeVinheta() => CriarSpriteDeVinheta(centroLimpo);
+
+    /// <summary>
+    /// Cria a imagem da vinheta: transparente no centro e opaca nas bordas (a cor vem da Image).
+    /// Pública para outros efeitos de tela reaproveitarem (ex.: o feedback de esquiva).
+    /// </summary>
+    public static Sprite CriarSpriteDeVinheta(float centroLimpo)
     {
         var textura = new Texture2D(TamanhoDaTextura, TamanhoDaTextura, TextureFormat.RGBA32, false)
         {

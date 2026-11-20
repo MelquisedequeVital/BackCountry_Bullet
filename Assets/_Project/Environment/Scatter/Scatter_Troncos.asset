@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Troncos
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Troncos_Secos
+  prefabs:
+  - prefab: {fileID: 2898043161404183578, guid: de36dc757b5f444458497df44ed35295, type: 3}
+    weight: 1
+  - prefab: {fileID: 9312166929551537, guid: 00c67062f2dc7d443b4c1e852b70c0a4, type: 3}
+    weight: 1
+  - prefab: {fileID: 1484826621699077661, guid: 640d15b471d82e646843431752960438, type: 3}
+    weight: 1.5
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 1
+  densityPerHectare: 1.5
+  region: 1
+  patchScale: 0
+  patchiness: 0
+  slopeRange: {x: 0, y: 15}
+  heightRange: {x: -2, y: 30}
+  avoidRiverBed: 1
+  reservedClearance: 6
+  roadClearance: 3
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 0.3
+  densityFalloffDistance: 40
+  groupSize: {x: 1, y: 1}
+  groupRadius: 6
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 3
+  footprintFactor: 0.5
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0.9
+  sinkFraction: 0.15
+  randomTilt: 0

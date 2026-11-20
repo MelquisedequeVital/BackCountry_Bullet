@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Arvores_Ralas
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 0
+  categoryName: Arvores_Ralas
+  prefabs:
+  - prefab: {fileID: 3264132520005053021, guid: b26818373618374489218a230e5997e2, type: 3}
+    weight: 1
+  - prefab: {fileID: 7624490350539683217, guid: 05efa877b5914d4499fd1e6fdea785d7, type: 3}
+    weight: 1
+  - prefab: {fileID: 2457336715120456426, guid: f94078e90065e6442b6f5c4fc6d1aa23, type: 3}
+    weight: 1
+  - prefab: {fileID: 2879640745637128879, guid: 4811daab69717934eb9a3e251375f584, type: 3}
+    weight: 0.3
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 0
+  densityPerHectare: 6
+  region: 0
+  patchScale: 180
+  patchiness: 0.6
+  slopeRange: {x: 0, y: 25}
+  heightRange: {x: -1, y: 60}
+  avoidRiverBed: 1
+  reservedClearance: 8
+  roadClearance: 4
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 0.15
+  densityFalloffDistance: 90
+  groupSize: {x: 1, y: 3}
+  groupRadius: 10
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 4
+  footprintFactor: 0.35
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0.02
+  randomTilt: 3

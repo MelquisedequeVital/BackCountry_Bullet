@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Arvore_Marco
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Arvore_Marco
+  prefabs:
+  - prefab: {fileID: 8151045937100325666, guid: 0b621c472c7c19046a90b289638096a8, type: 3}
+    weight: 1
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 1
+  densityPerHectare: 0.5
+  region: 1
+  patchScale: 0
+  patchiness: 0
+  slopeRange: {x: 0, y: 8}
+  heightRange: {x: -1, y: 10}
+  avoidRiverBed: 1
+  reservedClearance: 40
+  roadClearance: 20
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 1
+  densityFalloffDistance: 1
+  groupSize: {x: 1, y: 1}
+  groupRadius: 6
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 400
+  footprintFactor: 0.4
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0
+  randomTilt: 0

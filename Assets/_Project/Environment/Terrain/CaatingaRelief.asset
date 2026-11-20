@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4f1eba4f82aab4ead2d57bc3805e38, type: 3}
+  m_Name: CaatingaRelief
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.TerrainReliefSettings
+  layout: {fileID: 11400000, guid: ee958a0128c9b36449f8c76f488a7e0a, type: 2}
+  seed: 1977
+  baseHeight: 20
+  playableHalfSize: 200
+  plainAmplitude: 3.5
+  plainWavelength: 160
+  plainOctaves: 3
+  serraStart: 215
+  serraFull: 345
+  serraMinHeight: 38
+  serraMaxExtraHeight: 62
+  serraWavelength: 320
+  serraRegionWavelength: 450
+  chapadaBias: 0.12
+  serraFootWobble: 60
+  arcRidges: 0
+  arcCenterDistance: 315
+  arcRadius: {x: 55, y: 85}
+  arcSpanDegrees: {x: 190, y: 250}
+  arcWidth: {x: 26, y: 38}
+  arcHeight: {x: 45, y: 80}
+  rockArchesInside: 0
+  rockArchesInArcRidges: 0
+  rockArchScale: {x: 0.9, y: 1.15}
+  rockArchMaterial: {fileID: 2100000, guid: 76cc890fcb864014fb0d95684099aefd, type: 2}
+  inselbergsInside: 0
+  inselbergsOutside: 3
+  inselbergRadius: {x: 40, y: 60}
+  inselbergHeight: {x: 45, y: 75}
+  inselbergClearance: 35
+  lajedoCount: 9
+  lajedoRadius: {x: 7, y: 16}
+  lajedoHeight: {x: 0.3, y: 0.9}
+  riverStart: {x: 130, y: 860}
+  riverEnd: {x: 870, y: 140}
+  riverMeanderAmplitude: 30
+  riverMeanderWavelength: 260
+  riverBedHalfWidth: 4.5
+  riverBankWidth: 7
+  riverDepth: 2.5
+  roadBlend: 10
+  roadSmoothWindow: 30

@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Arbustos_Arvores
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 0
+  categoryName: Arbustos_Arvores
+  prefabs:
+  - prefab: {fileID: 6142905435958074827, guid: 76533376a5f06d442a6ea3f758e13756, type: 3}
+    weight: 1
+  - prefab: {fileID: 845331521217295862, guid: 5671669c5b54116428660f6764fcbad0, type: 3}
+    weight: 1.2
+  - prefab: {fileID: 479398939464233565, guid: 10143aa74420d6544bb8b88e43361881, type: 3}
+    weight: 1
+  - prefab: {fileID: 3708010781116868692, guid: 67f74d56a831eeb49adc3acf83ebc717, type: 3}
+    weight: 0.35
+  output: 0
+  vegetationField: 0
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 0
+  densityPerHectare: 0.8
+  region: 0
+  patchScale: 0
+  patchiness: 0
+  slopeRange: {x: 0, y: 32}
+  heightRange: {x: -1, y: 90}
+  avoidRiverBed: 1
+  reservedClearance: 5
+  roadClearance: 2.5
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 0.3
+  densityFalloffDistance: 60
+  groupSize: {x: 2, y: 4}
+  groupRadius: 3
+  nearRule: {fileID: 11400000, guid: e6646cb7f68d9b84e8c671ff6fcb4d16, type: 2}
+  nearRuleDistance: 5
+  placeOnColliders: 0
+  minDistance: 1.2
+  footprintFactor: 0.5
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0
+  randomTilt: 0

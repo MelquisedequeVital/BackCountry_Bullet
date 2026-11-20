@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63afc189087c5d347bc1a841592b00b6, type: 3}
+  m_Name: Scatter_Mata_Arbustos
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::BackcountryBullet.EditorTools.ScatterRule
+  enabled: 1
+  categoryName: Mata_Arbustos
+  prefabs:
+  - prefab: {fileID: 7452479517670131229, guid: 997ba4904d2b21945865cc6fdfe13bdd, type: 3}
+    weight: 1
+  - prefab: {fileID: 5051441863101179445, guid: 33e94a1ee5abc0040b2b3c1df655bd43, type: 3}
+    weight: 1
+  - prefab: {fileID: 2227102566363903760, guid: ce121d843adcff247bda25c21706bbe1, type: 3}
+    weight: 1
+  - prefab: {fileID: 8786976002308401881, guid: 425f7fb0fc359814f8538859486d3b5b, type: 3}
+    weight: 0.7
+  - prefab: {fileID: 2617552441822921594, guid: 89e6c3285d22f9e458127f1d863e9623, type: 3}
+    weight: 0.5
+  - prefab: {fileID: 7441449124397164325, guid: f7618312282edcc4f8704b75c1678e18, type: 3}
+    weight: 0.4
+  - prefab: {fileID: 6142905435958074827, guid: 76533376a5f06d442a6ea3f758e13756, type: 3}
+    weight: 0.15
+  - prefab: {fileID: 845331521217295862, guid: 5671669c5b54116428660f6764fcbad0, type: 3}
+    weight: 0.15
+  output: 1
+  vegetationField: 1
+  invertVegetationField: 0
+  lajedoRange: {x: 0, y: 1}
+  onlyNearTrail: 1
+  densityPerHectare: 900
+  region: 0
+  patchScale: 0
+  patchiness: 0
+  slopeRange: {x: 0, y: 50}
+  heightRange: {x: -5, y: 140}
+  avoidRiverBed: 1
+  reservedClearance: 6
+  roadClearance: 4
+  roadBand: {x: 0, y: 0}
+  nearReservedDensity: 1
+  densityFalloffDistance: 1
+  groupSize: {x: 1, y: 1}
+  groupRadius: 0
+  nearRule: {fileID: 0}
+  nearRuleDistance: 4
+  placeOnColliders: 0
+  minDistance: 2.4
+  footprintFactor: 0.34
+  scaleRange: {x: 0.8, y: 1.2}
+  randomYaw: 1
+  alignToNormal: 0
+  sinkFraction: 0
+  randomTilt: 0

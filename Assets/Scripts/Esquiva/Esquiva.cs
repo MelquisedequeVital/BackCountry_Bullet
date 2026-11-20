@@ -190,7 +190,7 @@ public class Esquiva : MonoBehaviour, IEstadoEsquiva, IFonteDeInvencibilidade
 
     private bool JogadorQuerEsquivar()
     {
-        return Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame;
+        return Mouse.current != null && Mouse.current.rightButton.wasPressedThisFrame && !FluxoDoJogo.JogoParado;
     }
 
     private bool PodeEsquivar()

@@ -120,6 +120,13 @@ public class Derrubada : MonoBehaviour, IDerrubavel, IFonteDeInvencibilidade, IP
         tempoNaFase = 0f;
     }
 
+    /// <summary>Volta a ficar de pé na hora, sem animação (ex.: o jogador renascendo depois de morrer caído).</summary>
+    public void Resetar()
+    {
+        fase = Fase.EmPe;
+        animator.speed = 1f;
+    }
+
     void Update()
     {
         if (fase == Fase.EmPe) return;

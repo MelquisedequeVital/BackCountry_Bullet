@@ -48,12 +48,12 @@ MonoBehaviour:
   nome: "Seu Zé"
   conversas:
   - dialogo: {fileID: 11400000, guid: 4ec2d35f0e664a47acb63be0b272b5ce, type: 2}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 0
   - dialogo: {fileID: 11400000, guid: 86b8c66977b9448996c05f51c3ab34a4, type: 2}
     exigirConversa: {fileID: 11400000, guid: 3d4f86746d9f4677bc3dae48b9bf424c, type: 2}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 0
   conversaRepetida: {fileID: 0}

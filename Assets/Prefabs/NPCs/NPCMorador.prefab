@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCMorador
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 222e404172c7d2f4a9873bf835c3fd51, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c7286051f2574ca0b4b29c4abbbd391b, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 222e404172c7d2f4a9873bf835c3fd51, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

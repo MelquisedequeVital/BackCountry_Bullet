@@ -11,7 +11,8 @@ public class ZonaDeDialogo : MonoBehaviour
 {
     public Dialogo dialogo;
 
-    [Tooltip("Quem fala: dá o nome das falas e a câmera enquadra ele e o jogador. Vazio = a câmera não muda.")]
+    [Tooltip("Quem fala: dá o nome das falas e a câmera enquadra ele e o jogador. " +
+             "Vazio = usa o NPC que tem a \"Exigir Conversa\" na lista dele; se não houver, a câmera não muda.")]
     public NPC quemFala;
 
     [Tooltip("Só começa depois que esta conversa já tiver acontecido (ex.: a da janela só depois da do balcão). Vazio = sem exigência.")]
@@ -34,7 +35,8 @@ public class ZonaDeDialogo : MonoBehaviour
         if (!caixa.JogadorPodeConversar || CaixaDeDialogo.EstaAberta) return;
 
         jaTocou = true;
-        caixa.Iniciar(dialogo, quemFala, null);
+        NPC npc = quemFala != null ? quemFala : NPC.DonoDaConversa(exigirConversa);
+        caixa.Iniciar(dialogo, npc, null);
     }
 
     void OnDrawGizmos()

@@ -20,8 +20,9 @@ public class NPC : MonoBehaviour
                  "(ex.: o agradecimento só depois do pedido da janela). Vazio = sem exigência.")]
         public Dialogo exigirConversa;
 
-        [Tooltip("A conversa só fica disponível depois que este inimigo morrer. Vazio = disponível já.")]
-        public Vida liberarQuandoMorrer;
+        [Tooltip("A conversa só fica disponível depois que TODOS estes inimigos morrerem " +
+                 "(arraste os inimigos da cena). Lista vazia = disponível já.")]
+        public List<Vida> liberarQuandoMorrerem = new List<Vida>();
 
         [Tooltip("Quando a conversa for liberada, o NPC vai para este ponto (posição e direção). Vazio = fica onde está.")]
         public Transform irParaOPonto;
@@ -102,9 +103,30 @@ public class NPC : MonoBehaviour
         });
     }
 
-    private static bool EstaLiberada(Etapa etapa) =>
-        (etapa.exigirConversa == null || CaixaDeDialogo.JaTocou(etapa.exigirConversa)) &&
-        (etapa.liberarQuandoMorrer == null || !etapa.liberarQuandoMorrer.EstaVivo);
+    private static bool EstaLiberada(Etapa etapa)
+    {
+        if (etapa.exigirConversa != null && !CaixaDeDialogo.JaTocou(etapa.exigirConversa)) return false;
+
+        foreach (Vida inimigo in etapa.liberarQuandoMorrerem)
+        {
+            if (inimigo != null && inimigo.EstaVivo) return false; // ainda tem inimigo vivo
+        }
+        return true;
+    }
+
+    /// <summary>O NPC da cena que tem esta conversa na lista dele (ou nulo).</summary>
+    public static NPC DonoDaConversa(Dialogo dialogo)
+    {
+        if (dialogo == null) return null;
+        foreach (NPC npc in todos)
+        {
+            foreach (Etapa etapa in npc.conversas)
+            {
+                if (etapa.dialogo == dialogo) return npc;
+            }
+        }
+        return null;
+    }
 
     // Quando a próxima conversa é liberada: muda de lugar (se tiver ponto) e começa sozinha (se for o caso)
     private void AtualizarEtapaLiberada(CaixaDeDialogo caixa)

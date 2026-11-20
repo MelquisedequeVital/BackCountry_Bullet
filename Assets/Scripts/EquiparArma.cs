@@ -113,7 +113,7 @@ public class EquiparArma : MonoBehaviour, IEstadoArma
     // 3. Detecta o clique na tecla configurada (Q). Não troca de arma no meio da esquiva.
     private void VerificarComandoTeclado()
     {
-        if (Keyboard.current == null || EstaEsquivando() || EstaDerrubado() || CaixaDeDialogo.EstaAberta) return;
+        if (Keyboard.current == null || EstaEsquivando() || EstaDerrubado() || CaixaDeDialogo.EstaAberta || FluxoDoJogo.JogoParado) return;
 
         if (Keyboard.current[teclaEquipar].wasPressedThisFrame)
         {

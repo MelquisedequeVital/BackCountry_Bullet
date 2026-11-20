@@ -41,13 +41,13 @@ MonoBehaviour:
   conversas:
   - dialogo: {fileID: 11400000, guid: e0a8ac3ab35a4aa283db6b018f739845, type: 2}
     exigirConversa: {fileID: 0}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 1
     distanciaParaComecar: 28
   - dialogo: {fileID: 11400000, guid: 51e5c15ed26648e8b53cbc4316d93ba9, type: 2}
     exigirConversa: {fileID: 0}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 1
     distanciaParaComecar: 0

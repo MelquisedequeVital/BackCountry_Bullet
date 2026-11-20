@@ -48,11 +48,11 @@ MonoBehaviour:
   nome: "Véio Bento"
   conversas:
   - dialogo: {fileID: 11400000, guid: 1dcea981eb104bbaa27d64c822f2cfb6, type: 2}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 0
   - dialogo: {fileID: 11400000, guid: 17b98ab4d7bf43b696c409fa0af8af45, type: 2}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 0
   conversaRepetida: {fileID: 0}

@@ -48,11 +48,11 @@ MonoBehaviour:
   nome: "Dona Socorro"
   conversas:
   - dialogo: {fileID: 11400000, guid: 9f6202064b9d468ca2aaded03a406bd7, type: 2}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 0
   - dialogo: {fileID: 11400000, guid: a2fedbeaede9426faee458aeb6d77250, type: 2}
-    liberarQuandoMorrer: {fileID: 0}
+    liberarQuandoMorrerem: []
     irParaOPonto: {fileID: 0}
     comecarSozinha: 0
   conversaRepetida: {fileID: 0}

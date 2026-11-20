@@ -64,6 +64,9 @@ public class CaixaDeDialogo : MonoBehaviour
     /// <summary>Essa conversa já foi mostrada nesta cena?</summary>
     public static bool JaTocou(Dialogo dialogo) => instancia != null && instancia.jaTocados.Contains(dialogo);
 
+    /// <summary>Disparado quando uma conversa termina (ex.: o FluxoDoJogo espera a conversa final para a vitória).</summary>
+    public static event Action<Dialogo> AoTerminarConversa;
+
     /// <summary>O jogador (o objeto que tem o controle de movimento). Pode ser nulo se não houver jogador.</summary>
     public Transform Jogador { get; private set; }
 
@@ -176,7 +179,7 @@ public class CaixaDeDialogo : MonoBehaviour
         // O "[E]" pisca quando a fala terminou de aparecer
         textoDoIndicador.enabled = linhaCompleta && Mathf.Repeat(Time.unscaledTime, 1f) < 0.65f;
 
-        if (Time.frameCount == quadroDaAbertura || !ApertouParaAvancar()) return;
+        if (Time.frameCount == quadroDaAbertura || FluxoDoJogo.JogoParado || !ApertouParaAvancar()) return;
 
         if (!linhaCompleta) MostrarFalaInteira();
         else ProximaFala();
@@ -216,6 +219,7 @@ public class CaixaDeDialogo : MonoBehaviour
 
     private void Terminar()
     {
+        Dialogo terminada = conversaAtual;
         conversaAtual = null;
         quadroDoFechamento = Time.frameCount;
         caixa.SetActive(false);
@@ -231,6 +235,7 @@ public class CaixaDeDialogo : MonoBehaviour
         aoTerminar = null;
         npcAtual = null;
         callback?.Invoke();
+        AoTerminarConversa?.Invoke(terminada);
     }
 
     // O jogador olha para o NPC (e o NPC para o jogador, se ele puder virar)
@@ -278,7 +283,7 @@ public class CaixaDeDialogo : MonoBehaviour
         if (npcDoAviso == null) return;
 
         textoDoAviso.text = $"[E] Falar com {npcDoAviso.nome}";
-        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame && !FluxoDoJogo.JogoParado)
             npcDoAviso.Conversar();
     }
 

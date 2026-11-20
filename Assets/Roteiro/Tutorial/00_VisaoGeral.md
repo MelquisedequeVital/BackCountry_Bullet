@@ -9,6 +9,8 @@ Personagem jogável: **Severino** (ex-cangaceiro, braço mecânico).
 - **Botão esquerdo** — atirar (5 tiros, recarga automática)
 - **Botão direito** — esquivar (armado: esquiva direcional sem largar a arma | desarmado: mergulho com invencibilidade)
 
+> Para montar as cenas no Unity, siga o **`Assets/01_GuiaDeMontagemDasCenas.md`**.
+
 ## Cenas
 1. `Cena1_Bar` — **NPCTutorial1** (Seu Zé): andar, câmera, sacar arma e atirar → **InimigoTutorial1** (Robô Azul)
 2. `Cena2_Praca` — **NPCTutorial2** (Véio Bento): esquiva armada → **InimigoTutorial2** (Robô Roxo)

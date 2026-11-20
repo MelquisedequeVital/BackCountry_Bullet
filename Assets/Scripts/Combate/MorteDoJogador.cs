@@ -8,6 +8,7 @@ using UnityEngine;
 ///  - Se já estava caído (derrubado), só fica no chão.
 /// Em todos os casos o jogador para de responder: não anda, não pula, não atira, não esquiva, não saca a arma,
 /// e a mira some. As animações são tocadas por nome (CrossFade): basta ter os estados na Base Layer do Animator.
+/// Também sabe trazer o jogador de volta (Reviver): é o que o FluxoDoJogo usa no "Tentar de novo".
 /// Coloque no objeto do jogador (o mesmo da Vida e do ThirdPersonController).
 /// </summary>
 [RequireComponent(typeof(Vida), typeof(Animator))]
@@ -27,6 +28,8 @@ public class MorteDoJogador : MonoBehaviour
     [Header("Geral")]
     [Tooltip("Duração da transição para a animação de morte (fração da animação, 0.15 = 15%)")]
     [Range(0f, 0.5f)] public float transicao = 0.15f;
+    [Tooltip("Estado para onde o jogador volta ao reviver (o andar do Starter Assets)")]
+    public string estadoDeLocomocao = "Idle Walk Run Blend";
 
     private Vida vida;
     private Animator animator;
@@ -34,6 +37,7 @@ public class MorteDoJogador : MonoBehaviour
     private IEstadoArma estadoArma;
     private Esquiva esquiva;
     private IDerrubavel derrubavel;
+    private readonly System.Collections.Generic.List<Behaviour> desligados = new System.Collections.Generic.List<Behaviour>();
 
     void Awake()
     {
@@ -71,6 +75,37 @@ public class MorteDoJogador : MonoBehaviour
         else Tocar(estadoMorteDesarmado, inicioDaMorteDesarmado);
     }
 
+    /// <summary>
+    /// Traz o jogador de volta à vida neste lugar: vida cheia, controles de volta, animação normal.
+    /// Quem decide quando e onde é o FluxoDoJogo (botão "Tentar de novo").
+    /// </summary>
+    public void Reviver(Vector3 posicao, Quaternion rotacao)
+    {
+        if (derrubavel is Derrubada derrubada) derrubada.Resetar();
+
+        // O CharacterController desfaz teleportes enquanto está ligado: desliga, move e religa
+        if (TryGetComponent(out CharacterController controlador)) controlador.enabled = false;
+        transform.SetPositionAndRotation(posicao, rotacao);
+        if (controlador != null) controlador.enabled = true;
+
+        vida.Reviver();
+
+        foreach (Behaviour componente in desligados)
+        {
+            if (componente != null) componente.enabled = true;
+        }
+        desligados.Clear();
+
+        // A mira volta a aparecer se ele ainda estiver com a arma na mão
+        if (TryGetComponent(out ControladorMira controladorMira) && controladorMira.imagemMira != null)
+            controladorMira.imagemMira.SetActive(estadoArma != null && estadoArma.EstaArmado);
+
+        if (controleMovimento != null) controleMovimento.MovimentoBloqueado = false;
+        animator.speed = 1f;
+        int locomocao = Animator.StringToHash(estadoDeLocomocao);
+        if (animator.HasState(0, locomocao)) animator.Play(locomocao, 0, 0f);
+    }
+
     private void Tocar(string estado, float inicio)
     {
         int hash = Animator.StringToHash(estado);
@@ -87,16 +122,18 @@ public class MorteDoJogador : MonoBehaviour
         Desligar<ApontarArmaParaMira>();
         Desligar<Esquiva>();
 
-        if (TryGetComponent(out ControladorMira controladorMira))
-        {
-            if (controladorMira.imagemMira != null) controladorMira.imagemMira.SetActive(false);
-            controladorMira.enabled = false;
-        }
+        if (TryGetComponent(out ControladorMira controladorMira) && controladorMira.imagemMira != null)
+            controladorMira.imagemMira.SetActive(false);
+        Desligar<ControladorMira>();
     }
 
     private void Desligar<T>() where T : Behaviour
     {
-        if (TryGetComponent(out T componente)) componente.enabled = false;
+        if (TryGetComponent(out T componente) && componente.enabled)
+        {
+            componente.enabled = false;
+            desligados.Add(componente); // para religar se o jogador reviver
+        }
     }
 
     private void AvisarSeFaltarEstado(string estado)

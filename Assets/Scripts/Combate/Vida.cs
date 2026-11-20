@@ -74,11 +74,15 @@ public class Vida : MonoBehaviour, IDanificavel
     /// <summary>Disparado quando um golpe é ignorado por invencibilidade (ex.: esquivou no tempo certo).</summary>
     public event Action AoEvitarDano;
 
+    /// <summary>Disparado quando o personagem volta à vida (ex.: o jogador renascendo no ponto de retorno).</summary>
+    public event Action AoReviver;
+
     public float VidaAtual { get; private set; }
     public float Porcentagem => VidaAtual / vidaMaxima;
     public bool EstaVivo => VidaAtual > 0f;
 
     private IFonteDeInvencibilidade[] fontesDeInvencibilidade;
+    private readonly System.Collections.Generic.List<Collider> colisoresDesligados = new System.Collections.Generic.List<Collider>();
     private IModificadorDeDano[] modificadoresDeDano;
 
     void Awake()
@@ -124,6 +128,18 @@ public class Vida : MonoBehaviour, IDanificavel
             Morrer();
     }
 
+    /// <summary>Volta à vida com a vida cheia e religa os colisores que a morte desligou.</summary>
+    public void Reviver()
+    {
+        VidaAtual = vidaMaxima;
+        foreach (Collider colisor in colisoresDesligados)
+        {
+            if (colisor != null) colisor.enabled = true;
+        }
+        colisoresDesligados.Clear();
+        AoReviver?.Invoke();
+    }
+
     public void Curar(float quantidade)
     {
         if (!EstaVivo || quantidade <= 0f) return;
@@ -147,8 +163,9 @@ public class Vida : MonoBehaviour, IDanificavel
         foreach (Collider colisor in GetComponentsInChildren<Collider>())
         {
             // O CharacterController do jogador também é um colisor; desligá-lo trava o movimento
-            if (colisor is CharacterController) continue;
+            if (colisor is CharacterController || !colisor.enabled) continue;
             colisor.enabled = false;
+            colisoresDesligados.Add(colisor); // para religar se o personagem reviver
         }
     }
 

@@ -46,6 +46,8 @@ public abstract class InimigoBase : MonoBehaviour
 
     protected bool EstaMorto { get; private set; }
 
+    private CapsuleCollider corpo; // o colisor do robô (para não deixar o jogador entrar nele)
+
     // ---------- Ciclo de vida ----------
 
     protected virtual void Awake()
@@ -59,6 +61,7 @@ public abstract class InimigoBase : MonoBehaviour
         animator.applyRootMotion = false;       // quem move o robô é o NavMeshAgent
 
         AvisarSeFaltarParametros(ParametrosNecessarios());
+        corpo = GetComponent<CapsuleCollider>();
     }
 
     protected virtual void Start()
@@ -75,6 +78,35 @@ public abstract class InimigoBase : MonoBehaviour
 
         AtualizarIA(Time.deltaTime);
         AtualizarAnimacaoDeMovimento();
+        EmpurrarJogadorParaFora();
+    }
+
+    // O robô anda com o NavMesh e o jogador com o CharacterController: quando o robô anda PARA DENTRO do jogador,
+    // nada os separa e o jogador acaba atravessando o corpo. Aqui o robô empurra o jogador para fora do colisor dele.
+    private void EmpurrarJogadorParaFora()
+    {
+        if (corpo == null || !corpo.enabled || corpo.isTrigger) return;
+        if (!(colisorDoAlvo is CharacterController jogador) || !jogador.enabled) return;
+
+        Vector3 escala = transform.lossyScale;
+        float raioDoRobo = corpo.radius * Mathf.Max(Mathf.Abs(escala.x), Mathf.Abs(escala.z));
+        Vector3 centroDoRobo = corpo.transform.TransformPoint(corpo.center);
+        float meiaAlturaDoRobo = Mathf.Max(corpo.height * Mathf.Abs(escala.y) * 0.5f, raioDoRobo);
+
+        Vector3 centroDoJogador = jogador.transform.TransformPoint(jogador.center);
+        float meiaAlturaDoJogador = jogador.height * 0.5f;
+
+        // Só se estiverem na mesma altura (o jogador em cima de uma caixa não é empurrado)
+        if (Mathf.Abs(centroDoJogador.y - centroDoRobo.y) > meiaAlturaDoRobo + meiaAlturaDoJogador) return;
+
+        Vector3 separacao = centroDoJogador - centroDoRobo;
+        separacao.y = 0f;
+        float distancia = separacao.magnitude;
+        float minima = raioDoRobo + jogador.radius + jogador.skinWidth;
+        if (distancia >= minima) return;
+
+        Vector3 direcao = distancia > 0.001f ? separacao / distancia : -transform.forward;
+        jogador.Move(direcao * (minima - distancia));
     }
 
     /// <summary>O comportamento de cada inimigo, chamado todo quadro enquanto ele está vivo.</summary>

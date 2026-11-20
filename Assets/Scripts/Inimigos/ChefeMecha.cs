@@ -91,6 +91,15 @@ public class ChefeMecha : InimigoBase, IModificadorDeDano
     [Tooltip("Desenha a lâmina na aba Scene durante o golpe (verde = não encostou, vermelho = acertou)")]
     public bool mostrarLaminaNaCena = false;
 
+    [Header("Acerto de perto (colado no robô)")]
+    [Tooltip("Quando o jogador está colado no robô, a espada passa por cima/por trás dele. " +
+             "Marcado: no pico do golpe, quem estiver bem perto e na frente leva o golpe mesmo assim.")]
+    public bool acertoDePerto = true;
+    [Tooltip("Até esta distância (m, do centro do robô ao jogador) o golpe acerta de perto")]
+    [Min(0f)] public float distanciaDePerto = 2.8f;
+    [Tooltip("Largura da área de perto à frente do robô (graus). Mais largo que o golpe normal: colado, não dá para escapar pelo lado")]
+    [Range(10f, 360f)] public float anguloDePerto = 160f;
+
     [Header("Ataques à distância (escolha)")]
     [Tooltip("Só atira com o jogador a pelo menos esta distância")]
     [Min(0f)] public float distanciaParaAtirar = 5f;
@@ -461,11 +470,23 @@ public class ChefeMecha : InimigoBase, IModificadorDeDano
         pontosAnteriores.Clear();
         pontosAnteriores.AddRange(pontosDaLamina);
 
+        // Colado no robô a lâmina passa por cima/por trás do jogador: no pico do golpe, acerta mesmo assim
+        if (!encostou && acertoDePerto && progresso >= ponto && JogadorColadoNaFrente())
+            encostou = true;
+
         if (encostou)
         {
             etapa.acertou = true;
             CausarDanoDeEspada(etapa.dano);
         }
+    }
+
+    private bool JogadorColadoNaFrente()
+    {
+        Vector3 paraAlvo = alvo.position - transform.position;
+        paraAlvo.y = 0f;
+        return paraAlvo.magnitude <= distanciaDePerto &&
+               Vector3.Angle(transform.forward, paraAlvo) <= anguloDePerto * 0.5f;
     }
 
     // Posição real (no mundo) de cada vértice das peças da espada neste quadro

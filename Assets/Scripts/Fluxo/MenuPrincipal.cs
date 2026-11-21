@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class MenuPrincipal : MonoBehaviour
 {
     [Tooltip("Nome da cena do jogo (precisa estar na lista de cenas do Build Profiles)")]
-    public string cenaDoJogo = "SampleScene";
+    public string cenaDoJogo = "Caatinga";
 
     void Start()
     {

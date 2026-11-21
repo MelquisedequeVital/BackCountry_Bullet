@@ -43,7 +43,7 @@ O tutorial tem 4 partes, uma depois da outra. Cada parte ensina uma mecânica co
 
 ### Uma cena do Unity só, com 4 áreas
 **Ainda não existe troca de cena** (carregar a próxima cena do Unity quando uma parte termina).
-Por isso, **monte as 4 partes na mesma cena do Unity** (`Assets/Scenes/SampleScene.unity` ou uma cena nova),
+Por isso, **monte as 4 partes na mesma cena do Unity** (hoje é `Assets/_Project/Scenes/Caatinga.unity`),
 como 4 áreas lado a lado, ligadas por caminhos. O jogador sai do bar e anda até a praça, o portão e a torre.
 
 Sugestão de organização na **Hierarchy** (objetos vazios só para agrupar, com **Create Empty**):

@@ -125,6 +125,10 @@ public class FluxoDoJogo : MonoBehaviour
             vidaDoJogador.AoMorrer += AoJogadorMorrer;
         }
         CaixaDeDialogo.AoTerminarConversa += AoTerminarConversa;
+
+        // Vindo do menu, a janela já está com foco e o Starter Assets não prende o cursor sozinho
+        // (ele só prende quando a janela ganha foco). Então prende aqui, no começo da cena.
+        AplicarCursor(EstadoAtual == Estado.Jogando);
     }
 
     void OnDestroy()
@@ -276,7 +280,16 @@ public class FluxoDoJogo : MonoBehaviour
         EstadoAtual = novo;
         bool jogando = novo == Estado.Jogando;
 
-        // Cursor: preso no jogo, solto nas telas (para clicar nos botões)
+        AplicarCursor(jogando);
+        if (entradaDoJogador != null && novo == Estado.Pausado) entradaDoJogador.DeactivateInput();
+        if (entradaDoJogador != null && jogando) entradaDoJogador.ActivateInput();
+
+        AoMudarEstado?.Invoke(novo);
+    }
+
+    // Cursor: preso no jogo, solto nas telas (para clicar nos botões)
+    private void AplicarCursor(bool jogando)
+    {
         Cursor.lockState = jogando ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !jogando;
         if (entradas != null)
@@ -285,10 +298,6 @@ public class FluxoDoJogo : MonoBehaviour
             entradas.cursorInputForLook = jogando; // a câmera não gira com o mouse nas telas
             if (!jogando) { entradas.LookInput(Vector2.zero); entradas.MoveInput(Vector2.zero); entradas.SprintInput(false); }
         }
-        if (entradaDoJogador != null && novo == Estado.Pausado) entradaDoJogador.DeactivateInput();
-        if (entradaDoJogador != null && jogando) entradaDoJogador.ActivateInput();
-
-        AoMudarEstado?.Invoke(novo);
     }
 
     // Chama o evento do menu; se ninguém ligou uma tela nele, mostra a tela provisória

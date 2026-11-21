@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23413f97e26e41da9c7b6e3c1c61b32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPrincipal
-  cenaDoJogo: SampleScene
+  cenaDoJogo: Caatinga
 --- !u!4 &543214892
 Transform:
   m_ObjectHideFlags: 0

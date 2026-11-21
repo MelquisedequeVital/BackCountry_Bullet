@@ -148,7 +148,7 @@ e os botões já ficam ligados.
 2. Crie o **EventSystem** (seção 3).
 3. Crie um **Canvas** e monte o menu: título, botão **Jogar**, botão **Sair** (e **Controles**, se quiserem).
 4. Crie um objeto vazio **Menu** → **Add Component → Menu Principal**.
-   - **Cena Do Jogo:** o nome da cena do jogo (hoje `SampleScene`; troque se a cena do jogo tiver outro nome).
+   - **Cena Do Jogo:** o nome da cena do jogo (hoje `Caatinga`, em `Assets/_Project/Scenes/`; troque se a cena do jogo tiver outro nome).
 5. Botão **Jogar** → On Click → arraste o objeto **Menu** → `MenuPrincipal.Jogar`.
    Botão **Sair** → `MenuPrincipal.Sair`.
 

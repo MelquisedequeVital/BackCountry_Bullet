@@ -1,0 +1,9 @@
+{
+ "TORRE_Fachada": {
+  "tex_cor": "Torre_Cor.jpg",
+  "tex_normal": "Torre_Normal.jpg",
+  "tex_metal": "Torre_MetalSuave.png",
+  "transparente": false,
+  "emissao_pela_cor": 1.2
+ }
+}

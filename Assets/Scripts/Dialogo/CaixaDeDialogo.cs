@@ -279,7 +279,17 @@ public class CaixaDeDialogo : MonoBehaviour
     private void AtualizarAvisoDoNpc()
     {
         npcDoAviso = JogadorPodeConversar && legendas.Count == 0 ? NPC.MaisProximoDisponivel(Jogador.position) : null;
-        textoDoAviso.enabled = npcDoAviso != null && !textoDaLegenda.enabled;
+
+        // Sem NPC por perto: uma porta (ex.: "[E] Entrar" na torre) usa o mesmo aviso
+        var porta = npcDoAviso == null && JogadorPodeConversar ? PortaDeEntrada.MaisProxima(Jogador.position) : null;
+        textoDoAviso.enabled = (npcDoAviso != null || porta != null) && !textoDaLegenda.enabled;
+        if (porta != null)
+        {
+            textoDoAviso.text = $"[E] {porta.texto}";
+            if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame && !FluxoDoJogo.JogoParado)
+                porta.Entrar(Jogador);
+            return;
+        }
         if (npcDoAviso == null) return;
 
         textoDoAviso.text = $"[E] Falar com {npcDoAviso.nome}";

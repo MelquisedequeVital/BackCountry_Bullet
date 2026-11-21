@@ -1,0 +1,47 @@
+{
+ "GALPAO_Concrete": {
+  "transparente": false,
+  "tex_cor": "Galpao_concrete_Cor.jpg",
+  "tex_normal": "Galpao_concrete_Normal.jpg",
+  "tex_metal": "Galpao_concrete_MetalSuave.png"
+ },
+ "GALPAO_Floor": {
+  "transparente": false,
+  "tex_cor": "Galpao_Floor_Cor.jpg",
+  "tex_normal": "Galpao_Floor_Normal.jpg",
+  "tex_metal": "Galpao_Floor_MetalSuave.png"
+ },
+ "GALPAO_Gates": {
+  "transparente": false,
+  "tex_cor": "Galpao_gates_Cor.jpg",
+  "tex_normal": "Galpao_gates_Normal.jpg",
+  "tex_metal": "Galpao_gates_MetalSuave.png"
+ },
+ "GALPAO_Glass": {
+  "cor": [
+   0.6,
+   0.7,
+   0.75
+  ],
+  "transparente": true,
+  "suavidade": 0.9
+ },
+ "GALPAO_Metal": {
+  "transparente": false,
+  "tex_cor": "Galpao_Metal_Cor.jpg",
+  "tex_normal": "Galpao_Metal_Normal.jpg",
+  "tex_metal": "Galpao_Metal_MetalSuave.png"
+ },
+ "GALPAO_Roof": {
+  "transparente": false,
+  "tex_cor": "Galpao_roof_Cor.jpg",
+  "tex_normal": "Galpao_roof_Normal.jpg",
+  "tex_metal": "Galpao_roof_MetalSuave.png"
+ },
+ "GALPAO_Walls": {
+  "transparente": false,
+  "tex_cor": "Galpao_walls_Cor.jpg",
+  "tex_normal": "Galpao_walls_Normal.jpg",
+  "tex_metal": "Galpao_walls_MetalSuave.png"
+ }
+}

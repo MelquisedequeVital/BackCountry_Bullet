@@ -172,6 +172,14 @@ Ele é **gerado para cada cena** e precisa ser **gerado de novo** sempre que o c
    - **Use Geometry:** Physics Colliders (assim os personagens não abrem buracos no chão azul)
 4. Clique em **Bake**. Deve aparecer uma camada **azul** sobre o chão.
 
+### Na Caatinga são dois NavMesh
+| Objeto na Hierarchy | Cobre | Por quê |
+|---|---|---|
+| **NavMesh** | a fase toda (volume de 340 × 340 m em volta da estrada): bar, praça, portão e torre | é o NavMesh do mapa |
+| **Arena_Galpao** (dentro de `Cena4_Torre`) | só o galpão do boss | o galpão fica longe do mapa (o jogador é teleportado pela porta da torre), fora do volume do primeiro |
+
+Faça o **Bake nos dois**: selecione o objeto → componente **NavMesh Surface** → **Bake**. Depois, **Ctrl+S**.
+
 ### Quando refazer o Bake
 - Mudou o chão, as paredes, o balcão, caixas ou qualquer obstáculo → **Bake de novo**.
 - Inimigo parado sem se mexer → confira se ele está **em cima da parte azul**. Se não estiver, mova-o ou refaça o Bake.

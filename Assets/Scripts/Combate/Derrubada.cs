@@ -44,7 +44,7 @@ public class Derrubada : MonoBehaviour, IDerrubavel, IFonteDeInvencibilidade, IP
 
     [Header("Levantar")]
     [Tooltip("Nome do estado de levantar no Animator. Se não existir, ele volta direto para o andar.")]
-    public string estadoDoLevantar = "Levantando";
+    public string estadoDoLevantar = "Levantado"; // nome do estado no StarterAssetsThirdPerson.controller
     [Tooltip("De que ponto (0 a 1) a animação de levantar começa (pula o começo parado, se houver). " +
              "No 'Kip Up' os primeiros ~15% são o personagem parado no chão.")]
     [Range(0f, 0.9f)] public float inicioDoLevantar = 0.1f;

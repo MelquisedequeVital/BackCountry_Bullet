@@ -1,0 +1,461 @@
+fileFormatVersion: 2
+guid: cea198938ae37c747ae039a8594e40a7
+ModelImporter:
+  serializedVersion: 24600
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_AR3DMat_PBR_Black_Basalt_Slate
+    second: {fileID: 2100000, guid: c7137c6f9b1f57a468fedf1489ee943f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Aluminio
+    second: {fileID: 2100000, guid: a460516e7e2a3d647ac767df1eb418f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Azulejo_Balcao
+    second: {fileID: 2100000, guid: ec0e067d14977fb4fa3262cf5c4fe81d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Blue_plastic
+    second: {fileID: 2100000, guid: bf34eec31548aa8449b50950637df9a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Lampada_Acesa
+    second: {fileID: 2100000, guid: 62168e86b9ce9eb4ba4c84ac167f0135, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Lata_Itaipava
+    second: {fileID: 2100000, guid: 401513352492fb749aa0a6fa61fc145e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Liquido_Cachaca_Ouro
+    second: {fileID: 2100000, guid: 1471f156ff830014fb76093014b3e910, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Liquido_Cachaca_Prata
+    second: {fileID: 2100000, guid: ff0ee0a24b6a4d84aa6d2e0462c67810, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Liquido_Licor_Cafe
+    second: {fileID: 2100000, guid: 98df94a9ea633b74ea79caa49e6a3370, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Liquido_Licor_Verde
+    second: {fileID: 2100000, guid: 6f61c436d83610b4a80e806ad0835f0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Liquido_Licor_Vermelho
+    second: {fileID: 2100000, guid: 747eab2d9e6f4eb4e8bd77b27ccecdbf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Liquido_Whisky
+    second: {fileID: 2100000, guid: dd9a23b47ffe80143b6f27857c5802a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Amarelo
+    second: {fileID: 2100000, guid: 1c2d8b74706c503418e3675124979776, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Azul
+    second: {fileID: 2100000, guid: 3384efbdaedcf7b4d9c71542d6a2e5fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Laranja
+    second: {fileID: 2100000, guid: c6947aafdb91c054aabbadf35c5043f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Marrom
+    second: {fileID: 2100000, guid: 879059a6ac7711e4aac4fc690cb5cd28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Rosa
+    second: {fileID: 2100000, guid: 08aaf4e63fd26a04d8d39238c8f2122a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Roxo
+    second: {fileID: 2100000, guid: a560328289abbcf4799a3930572aa436, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Luminaria_Tecido_Terracota
+    second: {fileID: 2100000, guid: 78f9e2c5e5367cc418f6bb811fc76067, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Madeira_Teca
+    second: {fileID: 2100000, guid: 508e3a741cc778f40b96e4d13e860d11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Materiais
+    second: {fileID: 2100000, guid: e658ce9f77957fb4a80697fcbdeb1c77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Materiais_001
+    second: {fileID: 2100000, guid: 393947284090881479cfd89696c7cbcd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Materiais_020
+    second: {fileID: 2100000, guid: ab75d64cb6ab765449b3e1f1d2f8ffc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Neon_Ciano
+    second: {fileID: 2100000, guid: 3ecd3f817575cd040b9b81ad77f4bd84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Neon_Laranja
+    second: {fileID: 2100000, guid: 37e54b8c95dc1dc42b2c991f800163e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Neon_Rosa
+    second: {fileID: 2100000, guid: c95187492fb62774b9439597abf6fe20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Neon_Verde
+    second: {fileID: 2100000, guid: b53845a306270f0468ef2eb39c21abe6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Parede_Externa
+    second: {fileID: 2100000, guid: 8ea36bc1ae5b67844a12b6e3c10dc7d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Parede_Interna
+    second: {fileID: 2100000, guid: ed4866674a48e8449b4afb648f5595eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Piso_Lajota
+    second: {fileID: 2100000, guid: 762eea793755ef041841939538c7cecf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Plastico_Filme
+    second: {fileID: 2100000, guid: 56f4856168b7b9b4b84e9314e85e76e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Poster_Calcinha_Preta
+    second: {fileID: 2100000, guid: 6d97ef570d44b6148b1d8fd30cecd21d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Poster_Desejo_de_Menina
+    second: {fileID: 2100000, guid: 7d47dcc0074174d45b104b3ace3fbe64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Poster_Encantus
+    second: {fileID: 2100000, guid: 99c8e79a3ce8c1b489ead3cef7ce9173, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Poster_Magnificos
+    second: {fileID: 2100000, guid: 498041bc7839bd74ba364f52f693aaa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Poster_Pegado_na_Pegada
+    second: {fileID: 2100000, guid: d0d4510dc2995c24d99f9a0b463956a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Procedural_pearl_red_painted_plastic
+    second: {fileID: 2100000, guid: 03ed05a815af85f4089cef3e7bd66e3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Rolha_Cortica
+    second: {fileID: 2100000, guid: 7cefc18b77c895a4895a8605f9ee523a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Rotulo_51
+    second: {fileID: 2100000, guid: 6cf70df0dbceee04aa2178bc5467a706, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Rotulo_Matuta
+    second: {fileID: 2100000, guid: 84ae68b5ea6723f469e8d1aede52d322, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Rotulo_Pitu
+    second: {fileID: 2100000, guid: cb96f1a96debd0a41a72a32e01802caf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Rubber
+    second: {fileID: 2100000, guid: 54d990c82e145cd448e12033ad8314a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Tampa_Metal_Dourada
+    second: {fileID: 2100000, guid: 86cbe4006a860b5418ab410334a3b12d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Tampa_Metal_Prata
+    second: {fileID: 2100000, guid: 9786a37d3d694934fa36a003da77af91, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Tampa_Metal_Preta
+    second: {fileID: 2100000, guid: cb7e630a46940fe43a487ff9c357ebae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Tampa_Metal_Vermelha
+    second: {fileID: 2100000, guid: 2743f75e78986e8458ccd22198202abc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Telha_Ceramica
+    second: {fileID: 2100000, guid: 07106a4212d8e9e4b8c329ce72d906ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Toalha_Xadrez
+    second: {fileID: 2100000, guid: 4c2739339261a2f40adb47f155433db4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Ambar_1
+    second: {fileID: 2100000, guid: 39a10337d7a875b4187178486be9de82, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Ambar_2
+    second: {fileID: 2100000, guid: a33b198d15d2e9742b55e81f441670e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Azul_1
+    second: {fileID: 2100000, guid: 8134277b691abd3479a6797276019fba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Azul_2
+    second: {fileID: 2100000, guid: 7c1dcec81e30e6442a63048b265719ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Marrom_1
+    second: {fileID: 2100000, guid: 46d27f098dc375b47be8dd2a83597eaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Marrom_2
+    second: {fileID: 2100000, guid: f5f03f26beff4d943983251bea337fca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Transparente_1
+    second: {fileID: 2100000, guid: 09d3df9fb458c2c4fb2d78a2904c51c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Transparente_2
+    second: {fileID: 2100000, guid: d91f8d60980a1cc46bfc53060308650d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Transparente_3
+    second: {fileID: 2100000, guid: 49d7c57cfd79d0e478792aceedaa28a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Verde_1
+    second: {fileID: 2100000, guid: c607ac8de87f0384fa60e8926548e667, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Verde_2
+    second: {fileID: 2100000, guid: ba173084ab33a5644b30aaa7797f506f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Verde_3
+    second: {fileID: 2100000, guid: 020b85efc83da4e479151807c7d3f32a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Verde_Claro_1
+    second: {fileID: 2100000, guid: af7f33ffbee8c1246bf040655f6a94a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Garrafa_Verde_Claro_2
+    second: {fileID: 2100000, guid: 10534fdde15224b4481adbb1ddefae75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vidro_Shot
+    second: {fileID: 2100000, guid: 3ffbdfd952338404e8c2d2b7c9f4323c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vitral_Amarelo
+    second: {fileID: 2100000, guid: 26e753b8bf5f08746ad0eee791413239, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vitral_Ciano
+    second: {fileID: 2100000, guid: 56b3baede7383bf488d3a550e8ddfa80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vitral_Laranja
+    second: {fileID: 2100000, guid: a2b0fc85d1dda6c45a1f1abef2c5b447, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Vitral_Magenta
+    second: {fileID: 2100000, guid: cb4b78ade80a5c244bbc3eba19998865, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_White_painted_metal
+    second: {fileID: 2100000, guid: 5ee8a3750b352cc41a8aafd86158233c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BAR_Yellow_Glossy_Plastic
+    second: {fileID: 2100000, guid: ceadbb5a285933a40aa784d0366a886e, type: 2}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+    searchTexturesGlobally: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    preBakeConvexCollisionMesh: 0
+    preBakeTriangleCollisionMesh: 0
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    importUVs: -1
+    importVertexColors: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+    calculateBlendshapeNormalsDeltaFromImportedNormals: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

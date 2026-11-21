@@ -1,0 +1,1496 @@
+{
+ "materiais": {
+  "BAR_Parede_Interna": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.8500000238418579,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "plastered_wall_05_diff_4k.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Verde_Claro_1": {
+   "cor": [
+    0.55,
+    0.8,
+    0.55
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Liquido_Licor_Verde": {
+   "cor": [
+    0.22,
+    0.58,
+    0.15
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.0,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vitral_Magenta": {
+   "cor": [
+    1.0,
+    0.05,
+    0.6
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.11999999731779099,
+   "transparencia": 1.0,
+   "emissao": [
+    1.0,
+    0.05,
+    0.6,
+    1.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Poster_Magnificos": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.3499999940395355,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "poster_Magnificos.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Ambar_2": {
+   "cor": [
+    0.8,
+    0.45,
+    0.1
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Rotulo_Matuta": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.44999998807907104,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "rotulo_matuta.png",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Luminaria_Tecido_Marrom": {
+   "cor": [
+    0.3,
+    0.17,
+    0.07
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    0.3,
+    0.17,
+    0.07,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vitral_Amarelo": {
+   "cor": [
+    1.0,
+    0.78,
+    0.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.11999999731779099,
+   "transparencia": 1.0,
+   "emissao": [
+    1.0,
+    0.78,
+    0.0,
+    1.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Poster_Calcinha_Preta": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.3499999940395355,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "poster_Calcinha_Preta.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Transparente_2": {
+   "cor": [
+    0.92,
+    0.96,
+    0.95
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Neon_Ciano": {
+   "cor": [
+    0.05,
+    0.85,
+    1.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": [
+    0.05,
+    0.85,
+    1.0,
+    10.0
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Lampada_Acesa": {
+   "cor": [
+    1.0,
+    0.85,
+    0.6
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": [
+    1.0,
+    0.85,
+    0.6,
+    25.0
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Luminaria_Tecido_Amarelo": {
+   "cor": [
+    0.95,
+    0.8,
+    0.35
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    0.95,
+    0.8,
+    0.35,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Marrom_1": {
+   "cor": [
+    0.4,
+    0.2,
+    0.07
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Tampa_Metal_Preta": {
+   "cor": [
+    0.04,
+    0.04,
+    0.04
+   ],
+   "metalico": 0.5,
+   "rugosidade": 0.4000000059604645,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Blue_plastic": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "plastic01_diffuse.jpg",
+   "tex_normal": "plastic01_normal_opengl.jpg",
+   "tex_metal": null,
+   "tiling": [
+    1.0,
+    1.0
+   ]
+  },
+  "BAR_Luminaria_Tecido_Terracota": {
+   "cor": [
+    0.7,
+    0.25,
+    0.15
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    0.7,
+    0.25,
+    0.15,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Aluminio": {
+   "cor": [
+    0.8,
+    0.8,
+    0.82
+   ],
+   "metalico": 1.0,
+   "rugosidade": 0.25,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Verde_2": {
+   "cor": [
+    0.22,
+    0.55,
+    0.28
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Liquido_Cachaca_Prata": {
+   "cor": [
+    0.95,
+    0.95,
+    0.88
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.0,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Neon_Verde": {
+   "cor": [
+    0.15,
+    1.0,
+    0.2
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": [
+    0.15,
+    1.0,
+    0.2,
+    10.0
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Materiais_001": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "plasticapreta.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Rolha_Cortica": {
+   "cor": [
+    0.4675,
+    0.1865,
+    0.0786
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.8500000238418579,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Toalha_Xadrez": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.8999999761581421,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "tecido_xadrez_2k.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Piso_Lajota": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.44999998807907104,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "square_pavers_diff_4k.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Marrom_2": {
+   "cor": [
+    0.4,
+    0.2,
+    0.07
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Verde_Claro_2": {
+   "cor": [
+    0.55,
+    0.8,
+    0.55
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Liquido_Licor_Vermelho": {
+   "cor": [
+    0.62,
+    0.04,
+    0.08
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.0,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Poster_Pegado_na_Pegada": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.3499999940395355,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "poster_Pegado_na_Pegada.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Azul_1": {
+   "cor": [
+    0.3,
+    0.52,
+    0.78
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Tampa_Metal_Dourada": {
+   "cor": [
+    0.85,
+    0.65,
+    0.25
+   ],
+   "metalico": 1.0,
+   "rugosidade": 0.30000001192092896,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Rotulo_Pitu": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.44999998807907104,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "rotulo_pitu.png",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_White_painted_metal": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 1.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "metal01_diffuse.jpg",
+   "tex_normal": "metal_normal_opengl.jpg",
+   "tex_metal": "metal_metallic.jpg",
+   "tiling": [
+    1.0,
+    1.0
+   ]
+  },
+  "BAR_Luminaria_Tecido_Rosa": {
+   "cor": [
+    1.0,
+    0.35,
+    0.55
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    1.0,
+    0.35,
+    0.55,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vitral_Ciano": {
+   "cor": [
+    0.0,
+    0.8,
+    1.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.11999999731779099,
+   "transparencia": 1.0,
+   "emissao": [
+    0.0,
+    0.8,
+    1.0,
+    1.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Poster_Desejo_de_Menina": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.3499999940395355,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "poster_Desejo_de_Menina.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Lata_Itaipava": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.6000000238418579,
+   "rugosidade": 0.25,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "lata_itaipava.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Transparente_3": {
+   "cor": [
+    0.92,
+    0.96,
+    0.95
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Neon_Laranja": {
+   "cor": [
+    1.0,
+    0.4,
+    0.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": [
+    1.0,
+    0.4,
+    0.0,
+    10.0
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Luminaria_Tecido_Azul": {
+   "cor": [
+    0.15,
+    0.55,
+    0.9
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    0.15,
+    0.55,
+    0.9,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Tampa_Metal_Vermelha": {
+   "cor": [
+    0.1893,
+    0.0189,
+    0.0189
+   ],
+   "metalico": 0.6000000238418579,
+   "rugosidade": 0.3499999940395355,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Madeira_Teca": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.4000000059604645,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "teak_veneer_diff_4k.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Yellow_Glossy_Plastic": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "Yellow_Glossy_Plastic_Color.jpg",
+   "tex_normal": "Yellow_Glossy_Plastic_NormalGL.jpg",
+   "tex_metal": null,
+   "tiling": [
+    1.0,
+    1.0
+   ]
+  },
+  "BAR_Parede_Externa": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.8500000238418579,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "painted_plaster_wall_diff_4k.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_AR3DMat_PBR_Black_Basalt_Slate": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 1.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "BlackBasaltSlate_BaseColor.jpg",
+   "tex_normal": "BlackBasaltSlate_Normal.jpg",
+   "tex_metal": "BlackBasaltSlate_Metalness.jpg",
+   "tiling": [
+    1.0,
+    1.0
+   ]
+  },
+  "BAR_Vidro_Garrafa_Verde_3": {
+   "cor": [
+    0.22,
+    0.55,
+    0.28
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Liquido_Licor_Cafe": {
+   "cor": [
+    0.12,
+    0.05,
+    0.02
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.05000000074505806,
+   "transparencia": 0.30000001192092896,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vitral_Laranja": {
+   "cor": [
+    1.0,
+    0.35,
+    0.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.11999999731779099,
+   "transparencia": 1.0,
+   "emissao": [
+    1.0,
+    0.35,
+    0.0,
+    1.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Poster_Encantus": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.3499999940395355,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "poster_Encantus.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Materiais_020": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Ambar_1": {
+   "cor": [
+    0.0693,
+    0.8,
+    0.0486
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Rotulo_51": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.44999998807907104,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "rotulo_51.png",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Luminaria_Tecido_Laranja": {
+   "cor": [
+    1.0,
+    0.22,
+    0.05
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    1.0,
+    0.22,
+    0.05,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Shot": {
+   "cor": [
+    0.95,
+    0.97,
+    1.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Plastico_Filme": {
+   "cor": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.11999999731779099,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Transparente_1": {
+   "cor": [
+    0.92,
+    0.96,
+    0.95
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Liquido_Whisky": {
+   "cor": [
+    0.55,
+    0.25,
+    0.06
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.0,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Azulejo_Balcao": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "Tiles101_1K_JPG_Color.jpg",
+   "tex_normal": "Tiles101_1K_JPG_NormalGL.jpg",
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Azul_2": {
+   "cor": [
+    0.0201,
+    0.0397,
+    0.1273
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Tampa_Metal_Prata": {
+   "cor": [
+    0.8,
+    0.8,
+    0.82
+   ],
+   "metalico": 1.0,
+   "rugosidade": 0.25,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Rubber": {
+   "cor": [
+    0.15,
+    0.15,
+    0.15
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Procedural_pearl_red_painted_plastic": {
+   "cor": [
+    0.7035,
+    0.0021,
+    0.0
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Luminaria_Tecido_Roxo": {
+   "cor": [
+    0.55,
+    0.3,
+    0.85
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.949999988079071,
+   "transparencia": 0.0,
+   "emissao": [
+    0.55,
+    0.3,
+    0.85,
+    2.5
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Materiais": {
+   "cor": [
+    0.8,
+    0.8,
+    0.8
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": "coated_pine_diff_4k.jpg",
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Vidro_Garrafa_Verde_1": {
+   "cor": [
+    0.22,
+    0.55,
+    0.28
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.03999999910593033,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Liquido_Cachaca_Ouro": {
+   "cor": [
+    0.92,
+    0.62,
+    0.22
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.0,
+   "transparencia": 1.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Neon_Rosa": {
+   "cor": [
+    1.0,
+    0.08,
+    0.55
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.5,
+   "transparencia": 0.0,
+   "emissao": [
+    1.0,
+    0.08,
+    0.55,
+    10.0
+   ],
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    1,
+    1
+   ]
+  },
+  "BAR_Telha_Ceramica": {
+   "cor": [
+    0.6067,
+    0.2433,
+    0.1033
+   ],
+   "metalico": 0.0,
+   "rugosidade": 0.75,
+   "transparencia": 0.0,
+   "emissao": null,
+   "tex_cor": null,
+   "tex_normal": null,
+   "tex_metal": null,
+   "tiling": [
+    5.556,
+    2.5
+   ]
+  }
+ },
+ "luzes": [
+  {
+   "nome": "Luz_Principal",
+   "pos_blender": [
+    6.525,
+    1.983,
+    6.316
+   ],
+   "cor": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "watts": 1000.0
+  },
+  {
+   "nome": "Luz_Neon_Balcao",
+   "pos_blender": [
+    0.43,
+    0.985,
+    1.055
+   ],
+   "cor": [
+    0.05,
+    0.85,
+    1.0
+   ],
+   "watts": 60.0
+  },
+  {
+   "nome": "Luz_Neon_Prateleira_Superior",
+   "pos_blender": [
+    -0.0,
+    0.0,
+    0.0
+   ],
+   "cor": [
+    1.0,
+    0.08,
+    0.55
+   ],
+   "watts": 35.0
+  },
+  {
+   "nome": "Luz_Neon_Prateleira_Inferior",
+   "pos_blender": [
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   "cor": [
+    1.0,
+    0.08,
+    0.55
+   ],
+   "watts": 35.0
+  },
+  {
+   "nome": "Luz_Neon_Cacto",
+   "pos_blender": [
+    1.0,
+    4.065,
+    1.98
+   ],
+   "cor": [
+    0.2,
+    1.0,
+    0.3
+   ],
+   "watts": 25.0
+  },
+  {
+   "nome": "Luminaria_01_Luz",
+   "pos_blender": [
+    2.27,
+    2.1,
+    2.284
+   ],
+   "cor": [
+    1.0,
+    0.575,
+    0.5725
+   ],
+   "watts": 30.0
+  },
+  {
+   "nome": "Luminaria_02_Luz",
+   "pos_blender": [
+    3.0,
+    -0.33,
+    2.314
+   ],
+   "cor": [
+    1.0,
+    0.5035,
+    0.2975
+   ],
+   "watts": 30.0
+  },
+  {
+   "nome": "Luminaria_03_Luz",
+   "pos_blender": [
+    4.43,
+    2.59,
+    2.269
+   ],
+   "cor": [
+    0.5325,
+    0.685,
+    0.765
+   ],
+   "watts": 30.0
+  },
+  {
+   "nome": "Luminaria_04_Luz",
+   "pos_blender": [
+    5.79,
+    -0.15,
+    2.294
+   ],
+   "cor": [
+    0.835,
+    0.52,
+    0.3525
+   ],
+   "watts": 30.0
+  },
+  {
+   "nome": "Luminaria_05_Luz",
+   "pos_blender": [
+    0.3,
+    0.2,
+    2.384
+   ],
+   "cor": [
+    0.9725,
+    0.8225,
+    0.4625
+   ],
+   "watts": 30.0
+  },
+  {
+   "nome": "Luminaria_06_Luz",
+   "pos_blender": [
+    0.3,
+    2.5,
+    2.354
+   ],
+   "cor": [
+    0.615,
+    0.476,
+    0.3085
+   ],
+   "watts": 30.0
+  },
+  {
+   "nome": "Luminaria_07_Luz",
+   "pos_blender": [
+    4.2,
+    1.1,
+    2.474
+   ],
+   "cor": [
+    0.7525,
+    0.5475,
+    0.7375
+   ],
+   "watts": 30.0
+  }
+ ]
+}
